@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 
+    -- Tabela de Conteudo --
+
+    * # 
+    * # 
+    * RESPONSIVIDADE	
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: "Montserrat", sans-serif;
+}
+
+body{
+	margin: 0 25px;
+	background-image: url("../img/bg.jpg");
+	background-size: contain;
+	background-position: center;
+	height: 600vh;
+	display: flex;
+	justify-content: center;
+}
+/* sessao  */
+.D_news{
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	height: 80vh;
+	width: min(1920px,90%);
+	border-radius: 20px;
+	border: 2px solid white;
+	padding: 40px;
+
+}
+/* Titulo NEWS q esta deitado */
+.D_Titlenews{
+	position: relative;
+	right: -20px;
+}
+/* container com blur onde tem a img e o texto */
+.D_container{
+	background: rgba(255, 255, 255, 0.01);
+	backdrop-filter: blur(23.65px);
+	/* Note: backdrop-filter has minimal browser support */
+	border-radius: 20px;
+	height: 100%;
+	width: 98%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.D_text{
+	height: 80%;
+	padding: 50px;
+}
+
+.D_text h3{
+	font-size: clamp(25px, 4vw, 45px);
+	margin-bottom: 20px;
+}
+.D_text p{
+	font-size: clamp(6px, 2vw, 22px);
+	width: 80%;
+}
+
+.D_text button{
+	color: black;
+	width: 186px;
+	height: 44px;
+	border-radius: 30rem;
+	border: 1px solid black;
+	outline: none;
+	margin-top: 5em;
+}
+
+.D_social{
+	display: flex;
+	margin-top: 25px;
+	gap: 20px;
+	margin-left: 10px;
+}
+
+.D_social i{
+	font-size: 40px;
+}
+.D_content{
+	background-image: url("../img/news.png");
+	background-size: cover;
+	background-position: center right;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	right: 0;
+	border: 2px solid white;
+	border-radius: 30px;
+	background-repeat: no-repeat;
+}
+
+@media (max-width:1300px) {
+	.D_content{
+		display: none;
+	}
+}
