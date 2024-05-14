@@ -1,24 +1,28 @@
-@media (min-width: 576px) and (max-width: 876px) {
+@media (min-width: 677px) and (max-width: 876px) {
     .img-base-P {
-        width: 50%;
+        display: none;
     }
 
     .text-container-base-P {
-        width: 50%;
+        width: 100%;
+        height: auto;
     }
 
     .img-nave-P {
         display: none;
     }
-
     
     .buttons-base-P > button {
         font-size: 15px;
     }
+
+    .text-container-base-P > p {
+        font-size: 25px;
+    }
     
 }
 
-@media (min-width: 0px) and (max-width: 576px) {
+@media (min-width: 0px) and (max-width: 676px) {
     .img-base-P {
         display: none;
     }
@@ -36,6 +40,6 @@
     }
 
     .text-container-base-P > p {
-        font-size: 14px;
+        font-size: 25px;
     }
 }
