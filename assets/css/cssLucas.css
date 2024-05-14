@@ -3,8 +3,7 @@
 /* 
     -- Tabela de Conteudo --
 
-    * # 
-    * # 
+    * # SECTION NEWS
     * RESPONSIVIDADE	
 */
 
@@ -24,7 +23,9 @@ body{
 	display: flex;
 	justify-content: center;
 }
-/* sessao  */
+
+
+/*! sessao news */
 .D_news{
 	display: flex;
 	justify-content: start;
@@ -56,8 +57,8 @@ body{
 }
 
 .D_text{
-	height: 80%;
-	padding: 50px;
+	padding: 0 10px 0 50px;
+	width: 90%;
 }
 
 .D_text h3{
@@ -100,10 +101,61 @@ body{
 	border: 2px solid white;
 	border-radius: 30px;
 	background-repeat: no-repeat;
+	display: flex;
+	justify-content: space-around;
+	align-items: end;
+}
+
+.D_clientreview, .D_reviews{
+	background: rgba(255, 255, 255, 0.01);
+	backdrop-filter: blur(16.65px);
+	/* Note: backdrop-filter has minimal browser support */
+	border-radius: 20px;
+	height: 30%;
+	width: 43%;
+	padding: 10px;
+	/* background-color: red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.D_clientreviewText{
+	margin-left: 10px;
+}
+
+.D_clientreviewTitel, .D_reviewTitel{
+	font-weight: 500;
+	font-size: clamp(12px, 2vw, 25px);
+	margin-bottom: 10px;
+}
+
+.D_clientreview p{
+	font-weight: 400;
+	font-size: clamp(6px, 1vw, 16px);
+}
+
+.D_clientreview h5{
+	font-size: clamp(12px, 2vw, 30px);
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+
+.D_clientreview span{
+	font-size: clamp(10px, 1vw, 20px);
+	margin-left: 10px;
 }
 
 @media (max-width:1300px) {
 	.D_content{
 		display: none;
+	}
+}
+
+@media (max-width: 1730px) {
+	.D_clientreview, .D_reviews{
+		height: 35%;
 	}
 }

@@ -8,7 +8,7 @@
 	<!-- import icones-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="assets/css/cssLucas.css">
 </head>
 
@@ -37,8 +37,23 @@
 				</span>
 			</div>
 			<div class="D_content">
-				<div class="D_clientreview"></div>
-				<div class="D_reviews"></div>
+				<div class="D_clientreview">
+					<div class="D_clientreviewText">
+						<h4 class="D_clientreviewTitel">Clientes Satisfeitos</h4>
+						<p>Nossa equipe trabalha incansavelmente para garantir
+							o mais alto nível de satisfação para cada hóspede.</p>
+					</div>
+					<h5>6+<span>ESTAÇOES</span></h5>
+				</div>
+				<div class="D_reviews">
+					<div class="reviewText">
+						<h4 class="D_reviewTitel">REVIEWS</h4>
+						<p>“Excelente localização, aconchegante
+							atmosfera, todas as comodidades
+							com tecnologia de ponta!”</p>
+					</div>
+					<span></span>
+				</div>
 			</div>
 		</div>
 	</section>
