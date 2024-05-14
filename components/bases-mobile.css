@@ -20,6 +20,7 @@
         font-size: 25px;
     }
     
+    
 }
 
 @media (min-width: 0px) and (max-width: 676px) {
@@ -40,6 +41,6 @@
     }
 
     .text-container-base-P > p {
-        font-size: 25px;
+        font-size: 17px;
     }
 }
