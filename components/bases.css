@@ -1,0 +1,164 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../assets/Imagens/foto-bg-estrelas.jpg);
+}
+
+.container-bases-P {
+    display: flex;
+    position: relative;
+    width: min(1500px, 95%);
+    align-items: center;
+    border: solid white 1px;
+    height: 100vh;
+    margin: 30px 0px;
+    background-size: cover;
+    
+}
+
+.bg-bases {
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 0px 70px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 95%;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    padding: 10px 10px 10px 60px;
+}
+
+.luxury-title-P {
+    display: flex;
+    position: absolute;
+    width: 230px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Imagens/LUXURY-TITLE.png);
+}
+
+.img-base-P {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    background-image: url(../assets/Imagens/base-lua.png);
+}
+
+.text-container-base-P {
+    display: inline-flex;
+    gap: 20px;
+    width: 30%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.title-bases-P {
+    text-align: center;
+}
+
+.buttons-base-P {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.buttons-base-P > button {
+    color: white;
+    width: 48%;
+    height: 62px;
+    border: none;
+    font-size: 23px;
+    font-style: italic;
+}
+
+.bt-2-P {
+    background-color: #0066FF;
+    font-weight: lighter;
+}
+
+.bt-1-P {
+    background-color: black;
+}
+
+.mini-img-base-P {
+    width: 100%;
+    height: 430px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Imagens/ap-base.png);
+}
+
+.space-base-P {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+
+
+.bg-nave {
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 0px 70px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 95%;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    padding: 10px 10px 10px 60px;
+}
+
+.mini-img-nave-P {
+    width: 100%;
+    height: 430px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Imagens/Interior-nave.png);
+}
+
+.img-nave-P {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    background-image: url(../assets/Imagens/nave.png);
+}
+
+.luxury-confort-P {
+    display: flex;
+    position: absolute;
+    width: 230px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Imagens/confort-title.png);   
+}
