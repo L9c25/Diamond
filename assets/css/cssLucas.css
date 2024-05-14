@@ -29,7 +29,7 @@ body{
 	display: flex;
 	justify-content: start;
 	align-items: center;
-	height: 80vh;
+	height: 70vh;
 	width: min(1920px,90%);
 	border-radius: 20px;
 	border: 2px solid white;
