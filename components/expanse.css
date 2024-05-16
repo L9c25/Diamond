@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../assets/Imagens/foto-bg-estrelas.jpg);
+}
+
+.container-expanse-P {
+    display: flex;
+    height: 100vh;
+    width: min(1500px, 95%);
+    justify-content: center;
+    background-image: url(../assets/Imagens/the-expansive.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box-expanse-P {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 95%;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+.group-text-expanse-P {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.categorias-container-P {
+    display: flex;
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+.categorias-container-P > div {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
