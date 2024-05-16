@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/assets/Swiper/swiper-bundle.min.css">
 	<!-- CSS by me -->
 	<link rel="stylesheet" href="assets/css/cssLucas.css">
+	<link rel="stylesheet" href="assets/css/cssLucas2.css">
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 		<h2 class="D_TitlenewsMobile">NEWS</h2>
 		<i class="fa-solid fa-circle-chevron-left arrow-mobile-left"></i>
 		<i class="fa-solid fa-circle-chevron-right arrow-mobile-right"></i>
-		<div class="swiper mySwiper">
+		<div class="swiper mySwiper2">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="D_container">
@@ -197,15 +198,63 @@
 					</div>
 				</div>
 			</div>
-			<div class="swiper-pagination"></div>
+			<div class="swiper-pagination2"></div>
 		</div>
 	</section>
 
+
+	<section class="D_contact">
+		<div class="D_TitlecontactDesktop"><img src="assets/img/CONTACTDESTOP.svg" alt="" srcset=""></div>
+
+		<div class="D_container2">
+			<div class="D_container3">
+				<div class="D_content2">
+					<div class="D_formcontact">
+						<form id="contact" action="" method="post">
+							<h2>Entre em contato<br>conosco</h2>
+							<input type="text" name="nome" id=nome" placeholder="Nome">
+							<input type="email" name="email" id="email" placeholder="Email">
+							<textarea name="coment" id="coment" cols="30" rows="10"
+								placeholder="Compartilhe seus pensamentos"></textarea>
+							<button type="submit">Deixar Feedback</button>
+						</form>
+					</div>
+				</div>
+				<div class="D_image2">
+					<div>
+						<img src="./assets/img/Bg_Contact.svg" alt="">
+						<h3>Deixe o seu<br>
+							Feedback</h3>
+						<p>O seu feedback impacta diretamente no funcionamento dos nossos sistemas! Ele nos ajuda a
+							identificar falhas ou desencontro de informações importantes. Desde já agradecemos pela
+							preferência </p>
+					</div>
+				</div>
+			</div>
+			<div class="D_content3">
+				<span>
+					<h4>LIGUE-NÓS</h4>
+					<p>+788-009-9009</p>
+				</span>
+				<span>
+					<h4>Aqui está o nosso endereço!</h4>
+					<p>Visite-nos na Rua das Estrelas, Quadra 1, Lote 5, Setor Celestial, Brasília.</p>
+				</span>
+				<span>
+					<h4>Nosso e-mail de contato</h4>
+					<p>diamond@spacemail.com</p>
+				</span>
+			</div>
+		</div>
+	</section>
+
+
+
 	<script src="./assets/Swiper/swiper-bundle.min.js"></script>
 	<script>
-		var swiper = new Swiper(".mySwiper", {
+		var swiper = new Swiper(".mySwiper2", {
 			pagination: {
-				el: ".swiper-pagination",
+				el: ".swiper-pagination2",
 				type: "progressbar",
 			},
 			navigation: {
