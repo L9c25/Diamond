@@ -386,8 +386,8 @@ body {
 }
 
 @media (max-width: 500px) {
-	.D_TitlenewsMobile {
-		font-size: 60px;
+	.D_TitlenewsMobile{
+		font-size: 60px !important;
 	}
 	.D_container,
 	.mySwiper2 {

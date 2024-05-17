@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 	<meta charset="UTF-8">
@@ -17,15 +17,18 @@
 </head>
 
 <body>
-
+	<!-- SESSAO CARD COM NOVIDADES -->
 	<section class="D_news">
+		<!-- TITLES DESKTOP & MOBILE -->
 		<div class="D_TitlenewsDesktop"><img src="assets/img/NEWSDESKTOP.svg" alt="" srcset=""></div>
-
 		<h2 class="D_TitlenewsMobile">NEWS</h2>
+		<!-- ARROWS -->
 		<i class="fa-solid fa-circle-chevron-left arrow-mobile-left"></i>
 		<i class="fa-solid fa-circle-chevron-right arrow-mobile-right"></i>
+		<!-- CLASS SWIPER -->
 		<div class="swiper mySwiper2">
 			<div class="swiper-wrapper">
+				<!-- CARD 1 -->
 				<div class="swiper-slide">
 					<div class="D_container">
 						<div class="D_text">
@@ -83,6 +86,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- CARD 2 -->
 				<div class="swiper-slide">
 					<div class="D_container">
 						<div class="D_text">
@@ -140,6 +144,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- CARD 3 -->
 				<div class="swiper-slide">
 					<div class="D_container">
 						<div class="D_text">
@@ -197,17 +202,21 @@
 						</div>
 					</div>
 				</div>
+				<!-- FIM CARD -->
 			</div>
 			<div class="swiper-pagination2"></div>
 		</div>
 	</section>
 
-
+	<!-- SESSAO DE CONTATO  -->
 	<section class="D_contact">
 		<div class="D_TitlecontactDesktop"><img src="assets/img/CONTACTDESTOP.svg" alt="" srcset=""></div>
+		<div class="D_TitlecontactMobile">CONTACT</div>
 
 		<div class="D_container2">
+			<!-- CONTAINER FORMULARIO/CALL TO ACTION -->
 			<div class="D_container3">
+				<!-- FORM -->
 				<div class="D_content2">
 					<div class="D_formcontact">
 						<form id="contact" action="" method="post">
@@ -220,9 +229,10 @@
 						</form>
 					</div>
 				</div>
+				<!-- CALL TO ACTION -->
 				<div class="D_image2">
 					<div>
-						<img src="./assets/img/Bg_Contact.svg" alt="">
+						<div class="img2"></div>
 						<h3>Deixe o seu<br>
 							Feedback</h3>
 						<p>O seu feedback impacta diretamente no funcionamento dos nossos sistemas! Ele nos ajuda a
@@ -231,6 +241,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- CONTENT ONDE NOS ACHAR-->
 			<div class="D_content3">
 				<span>
 					<h4>LIGUE-NÓS</h4>
@@ -248,9 +259,9 @@
 		</div>
 	</section>
 
-
-
+	<!-- IMPORT SWIPER -->
 	<script src="./assets/Swiper/swiper-bundle.min.js"></script>
+	<!-- CONFIG SWIPER -->
 	<script>
 		var swiper = new Swiper(".mySwiper2", {
 			pagination: {
