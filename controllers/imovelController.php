@@ -1,9 +1,9 @@
 <?php
 
-require "./models/aptModel.php";
+require "./models/imovelModel.php";
 require_once "./config/connect.php";
 
-class daoMysql implements AptDAO
+class daoMysql implements ImDAO
 {
 	private $pdo;
 	public function __construct(PDO $drive)
@@ -39,16 +39,7 @@ class daoMysql implements AptDAO
 		}
 		return $lista;
 	}
-
-	public function geraJSON()
-	{
-		$sql = $this->pdo->query("SELECT * FROM produto");
-		if ($sql->rowCount() > 0) {
-			$dados = $sql->fetchAll(PDO::FETCH_ASSOC);
-			print json_encode($dados);
-		}
-
-	}
+	
 	public function criarReserva($id_a, $id_u, $chek_in, $chek_out, $adult, $kid)
 	{
 		// query

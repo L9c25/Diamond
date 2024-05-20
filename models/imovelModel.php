@@ -1,14 +1,17 @@
 <?php
 require "config/connect.php";
 
+// Calculo do aluguel...
+// (precoImovel x 0.5) x 0.01 = precoAluguel
+
 class Apt
 {
 	private $id;
 	private $nome;
-	private $preco;
+	private $precoCompra;
 	private $descricao;
 	private $disponivel;
-	private $img1;
+	private $img;
 
 	public function setId($id)
 	{
@@ -30,14 +33,14 @@ class Apt
 		return $this->nome;
 	}
 
-	public function setPreco($preco)
+	public function setPreco($precoCompra)
 	{
-		$this->preco = $preco;
+		$this->precoCompra = $precoCompra;
 	}
 
 	public function getPreco()
 	{
-		return $this->preco;
+		return $this->precoCompra;
 	}
 
 	public function setDescricao($descricao)
@@ -60,20 +63,18 @@ class Apt
 		return $this->disponivel;
 	}
 
-	public function setImg1($img1)
+	public function setImg1($img)
 	{
-		$this->img1 = $img1;
+		$this->img = $img;
 	}
 
 	public function getImg1()
 	{
-		return $this->img1;
+		return $this->img;
 	}
 }
 
-interface AptDAO
+interface ImDAO
 {
 	public function listar();
-
-	public function geraJSON();
 }
