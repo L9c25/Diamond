@@ -14,9 +14,51 @@
 	<!-- CSS by me -->
 	<link rel="stylesheet" href="assets/css/cssLucas.css">
 	<link rel="stylesheet" href="assets/css/cssLucas2.css">
+	<link rel="stylesheet" href="assets/css/bases.css">
+	<link rel="stylesheet" href="assets/css/bases-mobile.css">
 </head>
 
 <body>
+	<div class="container-bases-P">
+		<h1 class="confort-title-mobile-P">CONFORT</h1>
+		<picture class="luxury-confort-P"></picture>
+		<div class="bg-nave">
+			<div class="text-container-base-P">
+				<h2 class="title-bases-P">Conheça nossas <br>Naves </h2>
+				<p>As moradias de luxo na Lua representam um marco impressionante na arquitetura e no desenvolvimento
+					humano fora da Terra. Com o avanço das tecnologias espaciais e da engenharia, essas residências não
+					são apenas possíveis, mas também um símbolo de prestígio e inovação.</p>
+				<span class="space-base-P"></span>
+				<div class="buttons-base-P">
+					<button class="bt-1-P">GALERIA</button>
+					<button class="bt-2-P">NAVES</button>
+				</div>
+				<picture class="mini-img-nave-P"></picture>
+			</div>
+			<picture class="img-nave-P"></picture>
+		</div>
+	</div>
+
+	<div class="container-bases-P">
+		<h1 class="luxury-title-mobile-P">LUXURY</h1>
+		<picture class="luxury-title-P"></picture>
+		<div class="bg-bases">
+			<div class="text-container-base-P">
+				<h2 class="title-bases-P">As Novas Bases <br> Lunares de alto luxo </h2>
+				<p>As moradias de luxo na Lua representam um marco impressionante na arquitetura e no desenvolvimento
+					humano fora da Terra. Com o avanço das tecnologias espaciais e da engenharia, essas residências não
+					são apenas possíveis, mas também um símbolo de prestígio e inovação.</p>
+				<span class="space-base-P"></span>
+				<div class="buttons-base-P">
+					<button class="bt-1-P">EXPLORE</button>
+					<button class="bt-2-P">LUA</button>
+				</div>
+				<picture class="mini-img-base-P"></picture>
+			</div>
+			<picture class="img-base-P"></picture>
+		</div>
+	</div>
+
 	<!-- SESSAO CARD COM NOVIDADES -->
 	<section class="D_news">
 		<!-- TITLES DESKTOP & MOBILE -->
