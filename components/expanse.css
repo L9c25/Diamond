@@ -63,7 +63,6 @@ body {
 
 .swiper {
     width: 100%;
-    height: 400px;
     margin-top: 30px;
   }
 
@@ -82,12 +81,12 @@ body {
     border: 1px solid white;
     border-radius: 20px;
     padding: 20px;
+    height: 400px;
   }
 
   .swiper-slide img {
     display: block;
     width: 100%;
-    height: 90%;
     object-fit: cover;
   }
 
@@ -122,7 +121,7 @@ body {
   .img-card-P {
     display: flex;
     width: 100%;
-    height: 50%;
+    height: 55%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
