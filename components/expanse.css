@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -13,7 +18,6 @@ body {
 
 .container-expanse-P {
     display: flex;
-    height: 100vh;
     width: min(1500px, 95%);
     justify-content: center;
     background-image: url(../assets/Imagens/the-expansive.png);
@@ -29,7 +33,6 @@ body {
     margin-top: 90px;
     backdrop-filter: blur(5px);
     width: 100%;
-    height: 95%;
     border-radius: 30px;
     font-family: "Montserrat", sans-serif;
     color: white;
@@ -67,6 +70,8 @@ body {
   .swiper-slide {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-size: 18px;
     background: black;
@@ -76,12 +81,13 @@ body {
     align-items: center;
     border: 1px solid white;
     border-radius: 20px;
+    padding: 20px;
   }
 
   .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
   }
 
@@ -111,4 +117,27 @@ body {
     width: 100%;
     color: black;
     margin-bottom: 20px;
+  }
+
+  .img-card-P {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../assets/Imagens/vadim-sadovski-f3\ 1.png);
+  }
+
+  .box-text-card-P {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: start;
+    height: 40%;
+    justify-content: space-between;
+  }
+
+  .title-box-P {
+
   }

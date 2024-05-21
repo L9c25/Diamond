@@ -1,6 +1,6 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
-    spaceBetween: 120,
+    spaceBetween: 80,
     pagination: {
       el: ".swiper-pagination",
       type: "fraction",
@@ -21,6 +21,5 @@ var swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  mousewheel: true,
   keyboard: true,
   });
