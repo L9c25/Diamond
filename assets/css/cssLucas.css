@@ -276,6 +276,7 @@ body {
 		border: 2px solid white;
 		padding: 0px 5px 0px 5px;
 		height: fit-content;
+		position: relative;
 	}
 
 	.D_container,
@@ -345,15 +346,15 @@ body {
 	.arrow-mobile-left, .arrow-mobile-right{
 		font-size: 40px;
 		position: absolute;
-		top: +250px;
+		top: 50%;
 	}
 	.arrow-mobile-left{
-		left: +5px;
+		left: -35px;
 		z-index: 2;
 	}
 
 	.arrow-mobile-right{
-		right: +5px;
+		right: -35px;
 		z-index: 2;
 	}
 
