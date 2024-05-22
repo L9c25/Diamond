@@ -64,6 +64,7 @@ body {
 .swiper {
     width: 100%;
     margin-top: 30px;
+    position: relative;
   }
 
   .swiper-slide {
@@ -80,7 +81,7 @@ body {
     align-items: center;
     border: 1px solid white;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     height: 400px;
   }
 
@@ -125,7 +126,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../assets/Imagens/vadim-sadovski-f3\ 1.png);
+    background-image: url(../assets/Imagens/nave.png);
+    border: 1px solid white;
+    border-radius: 10px;
   }
 
   .box-text-card-P {
@@ -137,6 +140,4 @@ body {
     justify-content: space-between;
   }
 
-  .title-box-P {
-
-  }
+  

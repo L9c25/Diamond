@@ -1,11 +1,14 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
-    spaceBetween: 50,
+    spaceBetween: 80,
     pagination: {
       el: ".swiper-pagination",
       type: "fraction",
     },
-
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
     breakpoints:{
       0: {
           slidesPerView: 1,
