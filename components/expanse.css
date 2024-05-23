@@ -50,6 +50,12 @@ body {
   flex-direction: column;
 }
 
+.box-text-P > h2 {
+  font-size: 50px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
 .button-white-P {
   width: 140px;
   height: 30px;
