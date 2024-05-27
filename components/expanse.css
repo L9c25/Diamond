@@ -50,12 +50,27 @@ body {
   flex-direction: column;
 }
 
-.box-text-P > h2 {
-  font-size: 1.5em;
-  font-weight: normal;
-  text-transform: uppercase;
+#box-text-P2 {
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
+#box-text-P3 {
+  display: flex;
+  align-items: flex-end;
+  text-align: end;
+}
+
+.box-text-P > h2 {
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+.box-text-P > p {
+  font-weight: lighter;
+  font-size: 1em;
+}
 .button-white-P {
   width: 140px;
   height: 30px;
@@ -137,12 +152,6 @@ body {
     border-radius: 20px;
     padding: 10px;
     user-select: none;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    object-fit: cover;
   }
 
   .swiper-wrapper {
@@ -237,6 +246,10 @@ body {
     justify-self: center;
     top: 50px;
     height: auto;
+  }
+
+  .group-text-expanse-mobile-P {
+    display: none;
   }
 
   
