@@ -4,6 +4,7 @@ var swiper = new Swiper(".mySwiper", {
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
+      dynamicBullets: true,
     },
     breakpoints:{
       0: {
@@ -20,5 +21,6 @@ var swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  loop: true,
   keyboard: true,
   });
