@@ -3,11 +3,7 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 50,
     pagination: {
       el: ".swiper-pagination",
-      type: "fraction",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      type: "fraction",
+      type: "bullets",
     },
     breakpoints:{
       0: {

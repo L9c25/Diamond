@@ -56,10 +56,6 @@ body {
   text-transform: uppercase;
 }
 
-#2 {
-
-}
-
 .button-white-P {
   width: 140px;
   height: 30px;
@@ -140,6 +136,7 @@ body {
     border: 1px solid white;
     border-radius: 20px;
     padding: 10px;
+    user-select: none;
   }
 
   .swiper-slide img {
