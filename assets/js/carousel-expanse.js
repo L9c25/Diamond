@@ -23,3 +23,14 @@ var swiper = new Swiper(".mySwiper", {
   },
   keyboard: true,
   });
+
+  var swiper = new Swiper(".mySwiper2", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+  });
