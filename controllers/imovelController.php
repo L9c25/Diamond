@@ -2,7 +2,6 @@
 
 require "./models/imovelModel.php";
 require_once "./config/connect.php";
-
 class daoMysql implements ImDAO
 {
 	private $pdo;
@@ -11,35 +10,259 @@ class daoMysql implements ImDAO
 		$this->pdo = $drive;
 	}
 
-	public function listar()
-	{
-		$lista = [];
 
-		$sql = $this->pdo->query("SELECT a.id,a.nome,a.preco,
-								a.descricao,a.disponivel, i.d0 AS img_1
-								FROM acomodacao a
-								JOIN imagens i on a.fk_img = i.id
-								where disponivel = 0");
+	//! Listar os imoveis ↓↓↓
+	public function listar(string $id = null, bool $disponibilidade = null)
+	{
+		// $id -> Aplica o filtro de ID na query
+		// $disponibilidade Aplica o filtro de disponibilidade na query
+
+		$lista = [];
+		$query = "SELECT
+		-- Imovel
+		i.id, i.nome, i.pCompra as 'p/compra', i.desc, i.img, i.disponibilidade,
+		i.area, i.qtd_quartos, i.qtd_banheiros, i.qtd_vagasEst, i.fk_comodidades, i.fk_corretor, i.fk_endereco,
+		-- Endereço
+		en.bairro, en.numero, en.rua, ci.planet, ci.cod,
+		-- Corretor
+		cr.name, cr.phone,
+		-- Comodidades
+		cd.academia, cd.arealazer, cd.piscina, cd.banheira, cd.varanda, cd.estacionamento
+		FROM imovel i
+		JOIN comodidades cd on i.fk_comodidades = cd.id
+		JOIN corretores cr on i.fk_corretor = cr.id
+		JOIN endereco en on i.fk_endereco = en.id
+		JOIN ciep ci on en.ciep = ci.id ";
+
+		if ($id != null) {
+			// select em um imovel especifico
+			$query .= "where i.id = $id ";
+			// Filtro de disponibilidade... 1 = disponivel, 0 = ñ disponivel
+			if (isset($disponibilidade)){
+				$query .= $disponibilidade ? "AND disponibilidade = 1" : "AND disponibilidade = 0";
+			};
+		} else{
+			// Filtro de disponibilidade... 1 = disponivel, 0 = ñ disponivel
+			if (isset($disponibilidade)){
+				$query .= $disponibilidade ? "WHERE disponibilidade = 1" : "WHERE disponibilidade = 0";
+			};
+		}
+		
+
+
+		$sql = $this->pdo->query($query);
 
 		if ($sql->rowCount() > 0) {
 			$dados = $sql->fetchAll();
 
 			foreach ($dados as $item) {
-				$p = new Apt();
+				$p = new Imovel();
+
+				$comodidades = array(
+					'piscina' => $item['piscina'],
+					'areaLazer' => $item['arealazer'],
+					'varanda' => $item['varanda'],
+					'academia' => $item['academia'],
+					'estacionamento' => $item['estacionamento'],
+					'banheira' => $item['banheira']
+				);
+				$endereco = array(
+					'bairro' => $item['bairro'],
+					'numero' => $item['numero'],
+					'rua' => $item['rua'],
+					'planeta' => $item['planet'],
+					'cod' => $item['cod'],
+				);
+
+				$corretor = array(
+					'nome' => $item['name'],
+					'phone' => $item['phone']
+				);
+
 				$p->setId($item['id']);
 				$p->setNome($item['nome']);
-				$p->setPreco($item['preco']);
-				$p->setDescricao($item['descricao']);
-				$p->setImg1($item['img_1']);
-				$p->setDisponivel($item['disponivel']);
+				$p->setPrecoCompra($item['p/compra']);
+				$p->setDescricao($item['desc']);
+				$p->setImg($item['img']);
+				$p->setDisponivel($item['disponibilidade']);
+				$p->setArea($item['area']);
+				$p->setQtdQuartos($item['qtd_quartos']);
+				$p->setQtdBanheiros($item['qtd_banheiros']);
+				$p->setQtdVagas($item['qtd_vagasEst']);
+				$p->setEndereco($endereco);
+				$p->setComodidades($comodidades);
+				$p->setCorretor($corretor);
 
+				$p->setFkComodidades($item['fk_comodidades']);
+				$p->setFkCorretor($item['fk_corretor']);
+				$p->setFkEndereco($item['fk_endereco']);
 
 				$lista[] = $p;
 			}
 		}
 		return $lista;
 	}
-	
+
+
+	//! Criar o Imovel ↓↓↓
+	public function criarImovel(object $i = null)
+	{	
+		// FK_endereco => var fk_endereco
+		// FK_comodidades => var fk_comodidades
+
+
+		$this->pdo->beginTransaction();
+		try {
+
+			//?-> Insere o endereço
+			$endereco = $i->getEndereco();
+			$ciep = $i->getFkEndereco();
+			$stmt = $this->pdo->prepare("INSERT INTO endereco (id, bairro, numero, rua, ciep) 
+										VALUES (null, :bairro, :rua, :numero, :ciep)");
+										
+			$stmt->bindParam(':bairro', $endereco['bairro'], PDO::PARAM_STR);
+			$stmt->bindParam(':numero', $endereco['numero'], PDO::PARAM_STR);
+			$stmt->bindParam(':rua', $endereco['rua'], PDO::PARAM_STR);
+			$stmt->bindParam(':ciep', $ciep, PDO::PARAM_INT);
+			$stmt->execute();
+			//TODO Pega o ID do endereço que acabou de ser inserido
+			$FK_endereco = $this->pdo->lastInsertId();
+
+
+			//?-> Insere as comodidades
+			$c = $i->getComodidades();
+			$piscina = $c['piscina'];
+			$alazer = $c['arealazer'];
+			$varanda = $c['varanda'];
+			$banheira = $c['banheira'];
+			$academia = $c['academia'];
+			$est = $c['estacionamento'];
+
+			$stmt = $this->pdo->prepare("INSERT INTO comodidades (id, piscina, arealazer, varanda, banheira, academia, estacionamento) VALUES (null, :piscina, :arealazer, :varanda, :banheira, :academia, :estacionamento)");
+			
+			$stmt->bindParam(':piscina', $piscina, PDO::PARAM_INT);
+			$stmt->bindParam(':arealazer', $alazer, PDO::PARAM_INT);
+			$stmt->bindParam(':varanda', $varanda, PDO::PARAM_INT);
+			$stmt->bindParam(':banheira', $banheira, PDO::PARAM_INT);
+			$stmt->bindParam(':academia', $academia, PDO::PARAM_INT);
+			$stmt->bindParam(':estacionamento', $est, PDO::PARAM_INT);
+			
+			$stmt->execute();
+
+			//TODO Pega o ID da comodidade que acabou de ser inserida
+			$FK_comodidades = $this->pdo->lastInsertId();
+
+			//?-> INSERE O IMOVEL
+
+			$nome = $i->getNome();
+			$pCompra = $i->getPrecoCompra();
+			$desc = $i->getDescricao();
+			$img = $i->getImg();
+			$disponibilidade = $i->getDisponivel();
+			$area = $i->getArea();
+			$qtd_quartos = $i->getQtdQuartos();
+			$qtd_banheiros = $i->getQtdBanheiros();
+			$qtd_vagasEst = $i->getQtdVagas();
+			// deve vir de um form select...
+			$fk_corretor = $i->getFkCorretor();
+
+			$stmt = $this->pdo->prepare("INSERT INTO imovel VALUES (null, :nome, :pCompra, :desc, :img, :disponibilidade, :area, :qtd_quartos, :qtd_banheiros, :qtd_vagasEst, :fk_comodidades, :fk_endereco, :fk_corretor)");
+
+			$stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
+			$stmt->bindParam(':pCompra', $pCompra, PDO::PARAM_STR);
+			$stmt->bindParam(':desc', $desc, PDO::PARAM_STR);
+			$stmt->bindParam(':img', $img, PDO::PARAM_STR);
+			$stmt->bindParam(':disponibilidade', $disponibilidade, PDO::PARAM_BOOL);
+			$stmt->bindParam(':area', $area);
+			$stmt->bindParam(':qtd_quartos', $qtd_quartos, PDO::PARAM_INT);
+			$stmt->bindParam(':qtd_banheiros', $qtd_banheiros, PDO::PARAM_INT);
+			$stmt->bindParam(':qtd_vagasEst', $qtd_vagasEst, PDO::PARAM_INT);
+			$stmt->bindParam(':fk_comodidades', $FK_comodidades, PDO::PARAM_INT);
+			$stmt->bindParam(':fk_endereco', $FK_endereco, PDO::PARAM_INT);
+			$stmt->bindParam(':fk_corretor', $fk_corretor, PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			//? Commita as operações caso ambas sejam bem-sucedidas
+			$this->pdo->commit();
+			return true;
+		} catch (Exception $e) {
+			// Rollback nas operações em caso de erro
+			$this->pdo->rollBack();
+			echo $e;
+			return false;
+		}
+	}
+
+	//! Deletar um imovel ↓↓↓
+	public function deletImovel($id_a, $img)
+{
+    $stmt = $this->pdo->prepare("SELECT disponibilidade FROM imovel WHERE id = :id_a");
+    $stmt->bindParam(':id_a', $id_a, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(); // Usando fetch() pois esperamos apenas um registro
+
+    // Verifica se o imovel está disponível: se tiver ele pode ser deletado...
+    if ($result['disponibilidade'] == 1) {
+        try {
+            // Selecionando as Foreign Keys
+            $stmt = $this->pdo->prepare("SELECT fk_comodidades, fk_endereco FROM imovel WHERE id = :id_a");
+            $stmt->bindParam(':id_a', $id_a, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $fk_comodidade = $result['fk_comodidades'];
+            $fk_endereco = $result['fk_endereco'];
+
+            // Deletar o endereço do imóvel:
+            $stmt = $this->pdo->prepare("DELETE FROM endereco WHERE id = :fk_endereco");
+            $stmt->bindParam(':fk_endereco', $fk_endereco, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Deletar a comodidade do imóvel:
+            $stmt = $this->pdo->prepare("DELETE FROM comodidades WHERE id = :fk_comodidade");
+            $stmt->bindParam(':fk_comodidade', $fk_comodidade, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            // Deletar o imóvel
+            $stmt = $this->pdo->prepare("DELETE FROM imovel WHERE id = :id_a");
+            $stmt->bindParam(':id_a', $id_a, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $pasta = "./assets/img/imovel/";
+            unlink($pasta . $img); // Deleta a imgaem do serividor
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+
+	//! Ver os Cieps cadastrados
+	public function viewCiep(){
+		$sql = "SELECT * FROM ciep";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$resp = $stmt->fetchAll();
+		return $resp;
+	}
+
+
+	//! Ver os Corretores cadastrados
+	public function viewCorretor(){
+		$sql = "SELECT * FROM corretores";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$resp = $stmt->fetchAll();
+		return $resp;
+	}
+
+
+
+
+
 	public function criarReserva($id_a, $id_u, $chek_in, $chek_out, $adult, $kid)
 	{
 		// query
@@ -87,7 +310,7 @@ class daoMysql implements ImDAO
 				echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
 			}
 		} catch (PDOException $e) {
-			die ("Erro na operação: " . $e->getMessage());
+			die("Erro na operação: " . $e->getMessage());
 		} finally {
 			unset($stmt); // Libera a variável $stmt
 		}
@@ -105,7 +328,7 @@ class daoMysql implements ImDAO
 				echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
 			}
 		} catch (PDOException $e) {
-			die ("Erro na operação: " . $e->getMessage());
+			die("Erro na operação: " . $e->getMessage());
 		} finally {
 			unset($stmt); // Libera a variável $stmt
 		}
@@ -143,7 +366,7 @@ class daoMysql implements ImDAO
 						'total_preco' => $item['total_preco'],
 						'chek_in' => $item['chek_in'],
 						'chek_out' => $item['chek_out'],
-						'img'=> $item['img'],
+						'img' => $item['img'],
 					];
 				}
 				return $lista;
@@ -187,6 +410,53 @@ class daoMysql implements ImDAO
 			return false;
 		}
 	}
+
+	public function updateReserva($id, $nome, $desc, $preco)
+	{
+		$this->pdo->beginTransaction();
+		try {
+			// Atualiza a Acomodação
+			$stmt = $this->pdo->prepare("UPDATE acomodacao SET nome = :nome, preco = :preco, descricao = :descr WHERE id = $id");
+			$stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
+			$stmt->bindParam(':descr', $desc, PDO::PARAM_STR);
+			$stmt->bindParam(':preco', $preco, PDO::PARAM_INT);
+			$stmt->execute();
+
+			// Atualiza a imagem da pousada
+			// $stmt = $this->pdo->prepare("UPDATE acomodacao SET disponivel = '0' WHERE id = :id_a");
+			// $stmt->bindParam(':id_a', $id_a, PDO::PARAM_INT);
+			// $stmt->execute();
+
+			// Commita as operações caso ambas sejam bem-sucedidas
+			$this->pdo->commit();
+			return true;
+		} catch (Exception $e) {
+			// Rollback nas operações em caso de erro
+			$this->pdo->rollBack();
+			return false;
+		}
+	}
+
+	public function deletAcomodacao($id_a, $img)
+	{
+		try {
+			// Deletar img
+			$stmt = $this->pdo->prepare("DELETE FROM imagens WHERE d0 = :nome");
+			$stmt->bindParam(':nome', $img, PDO::PARAM_INT);
+			$stmt->execute();
+
+			// Deletar acomodaçao
+			$stmt = $this->pdo->prepare("DELETE FROM acomodacao WHERE id = :id_a");
+			$stmt->bindParam(':id_a', $id_a, PDO::PARAM_INT);
+			$stmt->execute();
+
+			$pasta = "./assets/img/ap/";
+			unlink($pasta . $img);
+			return true;
+		} catch (Exception $e) {
+			return false;
+		}
+	}
 }
 
 
@@ -203,5 +473,3 @@ function calc($intervalo, $p_noite)
 	// retornando o valor da estadia
 	return $valorEstadia;
 }
-
-

@@ -1,7 +1,7 @@
 <?php 
 	header('Content-Type: text/html; charset=utf-8');
 	$host = 'localhost';
-	$banco = 'pousada';
+	$banco = 'diamond';
 	$user = 'root';
 	$pass = '';
 	$porta = '3306';
