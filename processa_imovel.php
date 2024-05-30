@@ -1,5 +1,5 @@
 <?php
-//! Criação do imovel
+//! Processamento de Criação do imovel
 
 // Incluir arquivo de conexão com o banco
 require_once "./config/connect.php";

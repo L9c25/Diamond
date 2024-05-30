@@ -1,4 +1,6 @@
 <?php
+//! Painel de Criação do imovel
+
 // Incluir arquivo de conexão com o banco
 require_once "./config/connect.php";
 require_once "./controllers/imovelController.php";

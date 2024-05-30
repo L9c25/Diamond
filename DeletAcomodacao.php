@@ -1,4 +1,5 @@
 <?php
+//! Processamento de exclusão do imovel
 	require_once("config/connect.php");
 	require_once("controllers/imovelController.php");
 
