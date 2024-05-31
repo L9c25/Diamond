@@ -4,6 +4,13 @@
 // Incluir arquivo de conexão com o banco
 require_once "./config/connect.php";
 require_once "./controllers/imovelController.php";
+
+$p = new daoMysql($pdo);
+$imID = $_GET["i"];
+
+$p = new daoMysql($pdo);
+$imovel = $p->listar($id= $imID, $disponibilidade=null);
+$imovel = $imovel[0];
 ?>
 
 <!DOCTYPE html>
@@ -101,56 +108,62 @@ require_once "./controllers/imovelController.php";
 			<fieldset>
 				<legend>Informações do Imóvel</legend>
 				<label for="nome">Nome:</label>
-				<input type="text" id="nome" name="nome" required>
+				<input type="text" id="nome" name="nome" value="<?php echo $imovel->getNome()?>" required>
 
 				<label for="pCompra">Preço de Compra:</label>
-				<input type="number" step="0.01" id="pCompra" name="pCompra" required>
+				<input value="<?php echo $imovel->getPrecoCompra()?>" type="number" step="0.01" id="pCompra" name="pCompra" required>
 
 				<label for="descricao">Descrição:</label>
-				<textarea id="descricao" name="descricao" required></textarea>
+				<textarea id="descricao" name="descricao" required><?php echo $imovel->getDescricao()?></textarea>
 
 				<label for="img">Imagem:</label>
-				<input type="file" id="img" name="image" required>
+				<input type="file" id="img" name="image">
 
 				<label for="disponibilidade">Disponível:</label>
 				<select id="disponibilidade" name="disponibilidade">
+					<?php $disp = $imovel->getDisponivel();
+						$indisponivel = null;
+						if ($disp == 0) $indisponivel = "selected";
+					?>
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" <?php echo $indisponivel?>>Não</option>
 				</select>
 
 				<label for="area">Área (m²):</label>
-				<input type="number" step="0.01" id="area" name="area" required>
+				<input value="<?php echo $imovel->getArea()?>" type="number" step="0.01" id="area" name="area" required>
 
 				<label for="qtd_quartos">Quantidade de Quartos:</label>
-				<input type="number" id="qtd_quartos" name="qtd_quartos" required>
+				<input value="<?php echo $imovel->getQtdQuartos()?>"  type="number" id="qtd_quartos" name="qtd_quartos" required>
 
 				<label for="qtd_banheiros">Quantidade de Banheiros:</label>
-				<input type="number" id="qtd_banheiros" name="qtd_banheiros" required>
+				<input  value="<?php echo $imovel->getQtdBanheiros()?>" type="number" id="qtd_banheiros" name="qtd_banheiros" required>
 
 				<label for="qtd_vagasEst">Quantidade de Vagas de Estacionamento:</label>
-				<input type="number" id="qtd_vagasEst" name="qtd_vagasEst" required>
+				<input value="<?php echo $imovel->getQtdVagas()?>" type="number" id="qtd_vagasEst" name="qtd_vagasEst" required>
 			</fieldset>
 
 			<fieldset>
 				<legend>Endereço</legend>
 				<label for="bairro">Bairro:</label>
-				<input type="text" id="bairro" name="bairro" required>
+				<input value="<?php echo $imovel->getEndereco()["bairro"]?>" type="text" id="bairro" name="bairro" required>
 
 				<label for="rua">Rua:</label>
-				<input type="text" id="rua" name="rua" required>
+				<input value="<?php echo $imovel->getEndereco()["rua"]?>" type="text" id="rua" name="rua" required>
 
 				<label for="numero">Número:</label>
-				<input type="number" id="numero" name="numero" required>
+				<input value="<?php echo $imovel->getEndereco()["numero"]?>" type="number" id="numero" name="numero" required>
 
 				<label for="ciep">CIEP:</label>
 				<select name="ciep" id="ciep" require>
 					<?php 
 						$p = new daoMysql($pdo);
 						$dados = $p->viewCiep();
-
+						$imvCiep =  $imovel->getEndereco()["planeta"];
 						foreach($dados as $ciep):
+						$selecCiep = null;
+						if ($ciep["planet"] == $imvCiep) $selecCiep = "selected"
 					?>
-					<option value="<?php echo $ciep['id']?>"><?php echo $ciep['planet']?></option>
+					<option value="<?php echo $ciep['id']?>" <?php echo $selecCiep?>><?php echo $ciep['planet']?></option>
 					<?php endforeach;?>
 				</select>
 			</fieldset>
@@ -158,22 +171,28 @@ require_once "./controllers/imovelController.php";
 			<fieldset id="gpChek">
 				<legend>Comodidades</legend>
 				<label for="piscina">Piscina:</label>
-				<input type="checkbox" name="piscina" id="piscina">
+				<input type="checkbox" name="piscina" id="piscina" 
+				<?php $imovel->getComodidades()["piscina"] ? print("checked") : ""?>>
 
 				<label for="arealazer">Área de Lazer:</label>
-				<input type="checkbox" name="arealazer" id="arealazer">
+				<input type="checkbox" name="arealazer" id="arealazer"
+				<?php $imovel->getComodidades()["areaLazer"] ? print("checked") : ""?>>
 
 				<label for="varanda">Varanda:</label>
-				<input type="checkbox" name="Varanda" id="varanda">
+				<input type="checkbox" name="Varanda" id="varanda"
+				<?php $imovel->getComodidades()["varanda"] ? print("checked") : ""?>>
 
 				<label for="banheira">Banheira:</label>
-				<input type="checkbox" name="Banheira" id="banheira">
+				<input type="checkbox" name="Banheira" id="banheira"
+				<?php $imovel->getComodidades()["banheira"] ? print("checked") : ""?>>
 
 				<label for="academia">Academia:</label>
-				<input type="checkbox" name="Academia" id="academia">
+				<input type="checkbox" name="Academia" id="academia"
+				<?php $imovel->getComodidades()["academia"] ? print("checked") : ""?>>
 
 				<label for="estacionamento">Estacionamento:</label>
-				<input type="checkbox" name="Estacionamento" id="estacionamento">
+				<input type="checkbox" name="Estacionamento" id="estacionamento"
+				<?php $imovel->getComodidades()["estacionamento"] ? print("checked") : ""?>>
 
 			</fieldset>
 
@@ -186,10 +205,13 @@ require_once "./controllers/imovelController.php";
 						$dados = $p->viewCorretor();
 
 						foreach($dados as $corretor):
+						$idCorretor = $imovel->getFkCorretor();
+						$selecCorretor = null;
+						if ($corretor["id"] == $idCorretor) $selecCorretor = "selected"
 					?>
-					<option value="<?php echo $corretor['id']?>">
+					<option value="<?php echo $corretor['id']?>" <?php echo $selecCorretor?>>
 						<?php echo $corretor['name']?>
-						|| Telefone: <?php echo $corretor['phone']?>	
+						|| Telefone: <?php echo $corretor['phone']?>
 					</option>
 					<?php endforeach;?>
 				</select>

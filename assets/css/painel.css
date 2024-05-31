@@ -238,3 +238,7 @@ table.table .avatar {
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
+
+.edit{
+	cursor: pointer;
+}

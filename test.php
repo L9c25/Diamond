@@ -83,10 +83,11 @@ session_start();
 								<label for="selectAll"></label>
 							</span>
 						</th>
-						<th>Image</th>
-						<th>Name</th>
-						<th>Address</th>
-						<th>Reais</th>
+						<th>Foto</th>
+						<th>Nome</th>
+						<th>Endereço</th>
+						<th>Preço de compra</th>
+						<th>Disponivilidade</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -122,13 +123,17 @@ session_start();
 							</td>
 							<td><?php echo $imv->getNome() ?></td>
 							<td>
-								<p class="desc"><?php echo $imv->getDescricao() ?></p>
+								<p class="desc"><?php echo $imv->getEndereco()['rua'] . ', ' . $imv->getEndereco()['bairro'] . ', ' . "n°" .$imv->getEndereco()['numero'] . ', ' . $imv->getEndereco()['planeta']?></p>
 							</td>
 							<td>R$<?php echo number_format($imv->getPrecoCompra(), 2, ",", "."); ?>
 							</td>
 							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<?php echo $imv->getDisponivel()?>
+							</td>
+							<td>
+								<a class="edit" data-toggle="modal"><i class="material-icons"
+										data-toggle="tooltip" title="Edit" 
+										onclick="location.href='EditImovel.php/?i=<?php echo $id?>'">&#xE254;</i></a>
 								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
@@ -154,40 +159,7 @@ session_start();
 		</div>
 	</div>
 
-	<!-- Edit Modal HTML -->
-	<div id="editEmployeeModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">
-						<h4 class="modal-title">Edit Acomodação</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Name</label>
-							<input id="editNome" type="text" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Preço</label>
-							<input id="editPreco" type="number" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Descriçao</label>
-							<textarea id="editDesc" class="form-control" required></textarea>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-info update" value="Save">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-
+	
 	<!-- Delete Modal HTML -->
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -213,60 +185,14 @@ session_start();
 
 	<script>
 		$(document).ready(function (e) {
-			$(".edit").click(function (e) {
-				imvID = $(this).closest('tr').find(".imvID").text();
-				$.ajax({
-					url: 'getImovel.php',
-					type: 'POST',
-					data: { imvID: imvID },
-					success: function (response) {
-						// Manipule a resposta do servidor aqui
-						var A_nome = response.nome;
-						var A_preco = response.preco;
-						var A_desc = response.descricao;
 
-						$("#editNome").val(A_nome);
-						$("#editDesc").val(A_desc);
-						$("#editPreco").val(A_preco);
-					},
-					error: function (xhr, status, error) {
-
-						console.error(xhr.responseText);
-					}
-				});
-
-				$(".update").click(function (e) {
-
-					var nome = $("#editNome").val();
-					var desc = $("#editDesc").val();
-					var preco = $("#editPreco").val();
-
-
-					$.ajax({
-						url: 'update.php',
-						type: 'POST',
-						data: {
-							acomodacaoID: acomodacaoID,
-							nome: nome,
-							descricao: desc,
-							preco: preco
-						},
-						success: function (response) {
-
-						},
-						error: function (xhr, status, error) {
-							console.error(xhr.responseText);
-						}
-					})
-				})
-			});
 
 			$(".delete").click(function (e) {
 				imvID = $(this).closest('tr').find(".imvID").text();
 				imvImg = $(this).closest('tr').find(".imvImg").text();
 				$("#conDelet").click(function (e) {
 					$.ajax({
-						url: 'DeletAcomodacao.php',
+						url: 'DeletImovel.php',
 						type: 'POST',
 						data: {
 							imvID: imvID,
@@ -292,21 +218,7 @@ session_start();
 						},
 						error: function (xhr, status, error) {
 							//? Reserva Ñ foi deletada
-							const Toast = Swal.mixin({
-								toast: true,
-								position: "top-end",
-								showConfirmButton: false,
-								timer: 1500,
-								timerProgressBar: true,
-								didOpen: (toast) => {
-									toast.onmouseenter = Swal.stopTimer;
-									toast.onmouseleave = Swal.resumeTimer;
-								}
-							});
-							Toast.fire({
-								icon: "success",
-								title: "Não foi possivel Deletar a Acomodação"
-							});
+							alert("Ocorreu um erro ao tentar deletar o imovel.")
 						}
 					})
 				})

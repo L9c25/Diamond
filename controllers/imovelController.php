@@ -230,7 +230,7 @@ class daoMysql implements ImDAO
 
             $pasta = "./assets/img/imovel/";
             unlink($pasta . $img); // Deleta a imgaem do serividor
-            return true;
+			return true;
         } catch (Exception $e) {
             return false;
         }
@@ -240,7 +240,7 @@ class daoMysql implements ImDAO
 }
 
 
-	//! Ver os Cieps cadastrados
+	//TODOS Ver os Cieps cadastrados
 	public function viewCiep(){
 		$sql = "SELECT * FROM ciep";
 		$stmt = $this->pdo->prepare($sql);
@@ -250,7 +250,7 @@ class daoMysql implements ImDAO
 	}
 
 
-	//! Ver os Corretores cadastrados
+	//TODOS Ver os Corretores cadastrados
 	public function viewCorretor(){
 		$sql = "SELECT * FROM corretores";
 		$stmt = $this->pdo->prepare($sql);

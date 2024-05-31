@@ -9,6 +9,9 @@ require_once "./controllers/imovelController.php";
 if (isset($_POST['imvID'])) {
     $aID = $_POST['imvID'];
    
+	header('Location: EditImovel.php');
+
+
     $i = new daoMysql($pdo);
     $response = $i->listar($id=$aID);
 
@@ -21,7 +24,7 @@ if (isset($_POST['imvID'])) {
 				'img' => $response[0]->getImg(),
 			];
 
-
+	
     echo json_encode($response); // Se $d for um array, por exemplo
 } else {
     http_response_code(400);
