@@ -6,8 +6,8 @@ require_once "./config/connect.php";
 require_once "./controllers/imovelController.php";
 
 
-// Verifica se o ID da acomodação foi recebido
 $arq = $_FILES['image'];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (!$arq['error']) {
 
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 			$response = $i->criarImovel($imovel);
 			if ($response) {
-				print "<script>location.href = 'test.php'</script>";
+				print "<script>location.href = 'painel.php'</script>";
 			} else {
 				http_response_code(400);
 				unlink($imgname);

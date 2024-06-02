@@ -6,8 +6,10 @@ require_once "./config/connect.php";
 require_once "./controllers/imovelController.php";
 
 $p = new daoMysql($pdo);
-$imID = $_GET["i"];
-
+if (!isset($_GET["id"])){
+	header("Location: painel.php");
+}
+$imID = $_GET["id"];
 $p = new daoMysql($pdo);
 $imovel = $p->listar($id= $imID, $disponibilidade=null);
 $imovel = $imovel[0];
@@ -104,8 +106,16 @@ $imovel = $imovel[0];
 
 	<div class="container">
 		<h2>Cadastro de Imóvel</h2>
-		<form action="processa_imovel.php" method="post" enctype="multipart/form-data">
+		<form action="../updateImovel.php" method="POST" enctype="multipart/form-data">
+
+			<!--!! Enviando o chaves inportantes !! -->
+			<input type="hidden" name="id" value="<?php echo $imovel->getId(); ?>">
+			<input type="hidden" name="fkcomodidade" value="<?php echo $imovel->getFkComodidades(); ?>">
+			<input type="hidden" name="fkendereco" value="<?php echo $imovel->getFkEndereco(); ?>">
+
+
 			<fieldset>
+
 				<legend>Informações do Imóvel</legend>
 				<label for="nome">Nome:</label>
 				<input type="text" id="nome" name="nome" value="<?php echo $imovel->getNome()?>" required>
@@ -216,8 +226,8 @@ $imovel = $imovel[0];
 					<?php endforeach;?>
 				</select>
 			</fieldset>
-
-			<button type="submit">Cadastrar Imóvel</button>
+			
+			<button type="submit">Atualizar Imóvel</button>
 		</form>
 	</div>
 

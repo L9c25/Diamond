@@ -69,8 +69,8 @@ session_start();
 						<h2>Manage <b>Acomodação</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span
-								onclick="location.href='panel.php'">Add Imovel</span></a>
+						<a class="btn btn-success" data-toggle="modal" onclick="location.href='create.php'"><i class="material-icons">&#xE147;</i> <span
+								onclick="location.href='create.php'">Add Imovel</span></a>
 					</div>
 				</div>
 			</div>
@@ -133,7 +133,7 @@ session_start();
 							<td>
 								<a class="edit" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Edit" 
-										onclick="location.href='EditImovel.php/?i=<?php echo $id?>'">&#xE254;</i></a>
+										onclick="location.href='EditImovel.php/?id=<?php echo $id?>'">&#xE254;</i></a>
 								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
