@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="assets/css/cssLucas2.css">
 	<link rel="stylesheet" href="assets/css/bases.css">
 	<link rel="stylesheet" href="assets/css/bases-mobile.css">
+	<link rel="stylesheet" href="assets/css/expanse.css">
+	<link rel="stylesheet" href="assets/css/expanse-mobile.css">
 </head>
 
 <body>
@@ -65,6 +67,182 @@
 			<picture class="img-base-P"></picture>
 		</div>
 	</div>
+
+	<!-- Expanse -->
+	<div class="container-expanse-P">
+        <div class="box-expanse-P">
+            <!-- Grupo de textos desktop -->
+        
+            <div class="group-text-expanse-P">
+                <div class="box-text-P 1">
+                    <h2>Habitações Lunares</h2>
+                    <p>Descubra a serenidade da Lua em nossos refúgios lunares, onde paisagens impressionantes e
+                        silêncio cósmico se encontram. </p>
+                    <button class="button-white-P">Saiba mais</button>
+                </div>
+                <div class="box-text-P" id="box-text-P2">
+                    <h2>Marte Habitável</h2>
+                    <p>Explore o próximo passo da humanidade em Marte, onde cidades sustentáveis surgem no deserto
+                        vermelho, proporcionando um ambiente acolhedor para os pioneiros do espaço</p>
+                    <button class="button-white-P">Saiba mais</button>
+                </div>
+                <div class="box-text-P" id="box-text-P3">
+                    <h2>Horizonte de Jupiter</h2>
+                    <p>Explore o futuro da colonização espacial nas luas de Júpiter, onde paisagens alienígenas oferecem
+                        um novo horizonte para a humanidade.</p>
+                    <button class="button-white-P">Saiba mais</button>
+                </div>
+            </div>
+
+            <!-- Grupo de textos mobile -->
+
+            <div class="container-expanse-mobile-P mySwiper2">
+                <div class="box-expanse-mobile-P swiper-wrapper2">
+                    <div class="text-slide swiper-slide2">
+                        <h2>Habitações Lunares</h2>
+                        <p>Descubra a serenidade da Lua em nossos refúgios lunares, onde paisagens impressionantes e
+                            silêncio cósmico se encontram. </p>
+                        <button class="button-white-P">Saiba mais</button>
+                    </div>
+                    <div class="text-slide swiper-slide2" id="box-text-P2">
+                        <h2>Marte Habitável</h2>
+                        <p>Explore o próximo passo da humanidade em Marte, onde cidades sustentáveis surgem no deserto
+                            vermelho, proporcionando um ambiente acolhedor para os pioneiros do espaço</p>
+                        <button class="button-white-P">Saiba mais</button>
+                    </div>
+                    <div class="text-slide swiper-slide2" id="box-text-P3">
+                        <h2>Horizonte de Jupiter</h2>
+                        <p>Explore o futuro da colonização espacial nas luas de Júpiter, onde paisagens alienígenas oferecem
+                            um novo horizonte para a humanidade.</p>
+                        <button class="button-white-P">Saiba mais</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabela de informações sobre a diamond -->
+            <div class="categorias-container-P">
+                <h2>CATEGORIAS</h2>
+                <div>
+                    <p><strong>11+</strong><br>COMPLEXOS DE TURISMO EM <br> ÓRBITA</p>
+                    <p><strong>35+</strong><br>Colônias Lunares</p>
+                    <p><strong>50+</strong><br>MODELOS DE HABITAÇÕES <br>MARCIANAS</p>
+                    <p><strong>98+</strong><br>ESTAÇÕES ESPACIAIS DE <br> LUXO</p>
+                    <p><strong>107+</strong><br>BIOSFERAS <br>AUTOSSUSTENTÁVEIS</p>
+                </div>
+                <button class="button-black-P">veja todos</button>
+            </div>
+
+            <!-- carrousel dos itens -->
+
+            <div class="swiper-container">
+                <div class="swiper mySwiper swp">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <picture class="img-card-P">
+                            </picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P"></i>
+                                        <p><i class="fa-solid fa-house"></i> 300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                
+                        <div class="swipper-slide">
+                            <picture class="img-card-P"></picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P"></i>
+                                        <p><i class="fa-solid fa-house"></i> 300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="swipper-slide">
+                            <picture class="img-card-P"></picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P"></i>
+                                        <p><i class="fa-solid fa-house"></i> 300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="swipper-slide">
+                            <picture class="img-card-P"></picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P"></i>
+                                        <p><i class="fa-solid fa-house"></i> 300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="swipper-slide">
+                            <picture class="img-card-P"></picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P"></i>
+                                        <p><i class="fa-solid fa-house"></i> 300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="swipper-slide">
+                            <picture class="img-card-P"></picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P">
+                                        <p><i class="fa-solid fa-house"></i>300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="swipper-slide">
+                            <picture class="img-card-P"></picture>
+                            <div class="box-text-card-P">
+                                <div class="title-box-P">
+                                    <h2>Luas Jupiter</h2>
+                                    <p>Conheça o melhor do conforto nas luas de jupiter</p>
+                                </div>
+                                    <div class="expanse-box-P"></i>
+                                        <p><i class="fa-solid fa-house"></i> 300 avaliable</p>
+                                        <button class="button-expanse">Veja Mais</button>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="buttons-expanse-P">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
 	<!-- SESSAO CARD COM NOVIDADES -->
 	<section class="D_news">

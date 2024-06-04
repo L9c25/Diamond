@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.container-expanse-P {
+  display: flex;
+  width: min(1500px, 95%);
+  justify-content: center;
+  background-image: url(./assets/Imagens/the-expansive.png);
+  background-position: end;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+.box-expanse-P {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  border-radius: 30px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  position: relative;
+}
+
+.box-text-P {
+  display: inline-flex;
+  gap: 25px;
+  flex-direction: column;
+}
+
+#box-text-P2 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+#box-text-P3 {
+  display: flex;
+  align-items: flex-end;
+  text-align: end;
+}
+
+.box-text-P>h2 {
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+.box-text-P>p {
+  font-weight: lighter;
+  font-size: 1em;
+}
+
+.button-white-P {
+  width: 140px;
+  height: 30px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.group-text-expanse-P {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.categorias-container-P {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  font-size: .7em;
+  background-color: white;
+  color: black;
+  margin-top: 40px;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 90px;
+}
+
+.categorias-container-P>h2 {
+  font-size: 3em;
+  font-weight: normal;
+  color: #353535;
+}
+
+.categorias-container-P>div {
+  display: inline-flex;
+  gap: 20px;
+  text-transform: lowercase;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.categorias-container-P>div>p>strong {
+  font-size: 1.5em;
+}
+
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 93%;
+  margin: 25px 0px 60px 0px;
+}
+
+.swp {
+  width: 100%;
+  position: relative;
+}
+
+.swipper-slide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  background: black;
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  user-select: none;
+}
+
+.swp>.swiper-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.box-text-card-P {
+  color: white;
+  font-weight: 100;
+}
+
+.card-navegation-P {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+  z-index: 40;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.swiper-pagination {
+  color: black;
+  font-size: .9em;
+  user-select: none;
+}
+
+.img-card-P {
+  display: flex;
+  width: 100%;
+  height: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  background-image: url(./assets/Imagens/nave.png);
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.box-text-card-P {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: start;
+  height: 40%;
+  justify-content: space-between;
+}
+
+.expanse-box-P {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-top: 35px;
+}
+
+.button-expanse {
+  width: 40%;
+  background-color: white;
+  color: black;
+  height: 26px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-black-P {
+  width: 160px;
+  height: 45px;
+  background-color: black;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 9px 21.4px rgba(0, 0, 0, 0.863);
+}
+
+.buttons-expanse-P {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  position: relative;
+  justify-self: center;
+  top: 50px;
+  height: auto;
+}
+
+.group-text-expanse-mobile-P {
+  display: none;
+}

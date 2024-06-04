@@ -1,0 +1,35 @@
+@media (max-width: 876px) {
+    .group-text-expanse-mobile-P {
+        display: flex;
+    }
+
+    .group-text-expanse-P {
+        display: none;
+    }
+
+    .categorias-container-P > h2 {
+        display: none;
+    }
+
+    .container-expanse-mobile-P {
+        width: 100%;
+        height: 100%;
+      }
+  
+      .text-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+}
