@@ -4,36 +4,6 @@
 // Incluir arquivo de conexão com o banco
 require_once "./config/connect.php";
 require_once "./controllers/imovelController.php";
-// $p = new daoMysql($pdo);
-// $imoveis = $p->listar();
-// Suponha que $imoveis seja o array contendo os objetos Imovel
-// foreach ($imoveis as $imovel) {
-// 	echo '<img src="./assets/img/imovel/' . $imovel->getImg() . '" alt="" height="100em">';
-// 	echo "ID: " . $imovel->getId() . "<br>";
-// 	echo "Nome: " . $imovel->getNome() . "<br>";
-// 	echo "Preço de Compra: " . $imovel->getPrecoCompra() . "<br>";
-// 	echo "Preço de Aluguel: " . $imovel->getPrecoAluguel() . "<br>";
-// 	echo "Descrição: " . $imovel->getDescricao() . "<br>";
-// 	echo "Área: " . $imovel->getArea() . "<br>";
-// 	echo "Imagem: " . $imovel->getImg() . "<br>";
-// 	echo "Disponível: " . ($imovel->getDisponivel() ? 'Sim' : 'Não') . "<br>";
-// 	echo "Quartos: " . $imovel->getQtdQuartos() . "<br>";
-// 	echo "Banheiros: " . $imovel->getQtdBanheiros() . "<br>";
-// 	echo "Vagas: " . $imovel->getQtdVagas() . "<br>";
-// 	echo "Comodidades: ";
-// 	foreach ($imovel->getComodidades() as $key => $value) {
-// 		echo $key . ": " . ($value ? 'Sim' : 'Não') . "; ";
-// 	}
-// 	echo "<br>Endereço: ";
-// 	foreach ($imovel->getEndereco() as $key => $value) {
-// 		echo $key . ": " . $value . "; ";
-// 	}
-// 	echo "<br>Corretor: ";
-// 	foreach ($imovel->getCorretor() as $key => $value) {
-// 		echo $key . ": " . $value . "; ";
-// 	}
-// 	echo "<hr>";
-// }
 ?>
 
 <?php
