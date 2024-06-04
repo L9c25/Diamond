@@ -20,5 +20,4 @@ function route($route)
             include_once './index.php';
     }
 }
-?>
-<?php
+
