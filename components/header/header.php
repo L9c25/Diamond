@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <link rel="stylesheet" href="./components/header/header.css">
     <link rel="stylesheet" href="./components/header/css/menu-lateral.css">
     <script src="assets\jquery-3.7.1.min.js"></script>
     
-</head> 
+</head>
+
+
+
+
 <header>
     <nav class="L_nav-header">
         <div class="L_menu-left " id="L_menu-toggle"  style="cursor: pointer">
@@ -243,12 +247,3 @@
 <script src="./components/header/js/func-links.js"></script>
 <script src="./components/header/js/scroll-header.js"></script>
 <script src="./components/header/js/menu-lateral.js"></script>
-
-
-
-
-
-
-
-
-</html>

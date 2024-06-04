@@ -1,53 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="components\tela_inicial\ticket\index.css">
-    <style>
-        .L_config-span-2 {
-            margin-top: 20px;
-        }
-
-        .dropdown {
-            position: relative;
-            display: block;
-            cursor: pointer;
-            z-index: inherit;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            left: 0;
-            background-color: #f9f9f9;
-            min-width: 126px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            padding: 12px 16px;
-            z-index: 1000;
-        }
-
-        .dropdown-content div {
-            color: black;
-            text-decoration: none;
-            display: block;
-            padding: 5px 0;
-        }
-
-        .dropdown-content div:hover {
-            background-color: #ddd;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
-</head>
-
-
-
     <!-- tickets  -->
     <form id="L_ticket-desktop" action="pesquisar.php" method="post">
 
@@ -277,5 +227,3 @@
         <!-- scripts  -->
         <!-- configs filtro -->
         <script src="components\tela_inicial\ticket\js\configs-filtro.js"></script>
-
-</html>
