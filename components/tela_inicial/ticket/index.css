@@ -1,0 +1,297 @@
+@font-face {
+    font-family: 'quicksand';
+    src: url('components\tela_inicial\ticket\fonts\Quicksand-VariableFont_wght.ttf') format('ttf');
+}
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+/* .L_bg-image-home {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.L_image-bg {
+    width: 100%;
+    height: 100%;	
+    
+    object-position: center;
+    object-fit: cover;
+    z-index: -1;
+} */
+
+
+/* barra de pesquisa + versões dimensionadas*/
+.L_configs-univeral-p{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    height: 90px;
+    background-size: cover;
+    gap: 10px;
+    font-family: 'quicksand',sans-serif;
+    z-index: 10;
+}
+
+
+.L_barra-pesquisa{
+    position: absolute;
+    width: 1000px;
+    top: 80%;
+    left: 50%;
+    display: flex;
+    background-image: url('./imgs/ticket.svg');
+    transition: transform 0.3s ease-in-out;
+}
+/* barra responsiva */
+.L_barra-m{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    width: 100%;
+    height: 600px;
+}
+@media (max-height:670px) {
+    .L_barra-m{
+        height: 600px;
+    }
+}
+.L_titulo-diamond-1{
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 40%;
+}
+.L_titulo-diamond-2{
+    position: absolute;
+    
+    left: 50%;
+}
+.L_titulo-diamond-2>img{
+    width: 100%;
+}
+.L_ticket-1{
+    position: absolute;
+    display: none;
+    left: 50%;
+    background-image: url('./imgs/ticket-1026.svg');
+    transition: transform 0.3s ease-in-out;
+}
+.L_container-ticket-2{
+    position: relative;
+    width: 100vh;
+    height: 900px;
+}
+.L_ticket-2{
+    top: 65%;
+    left: 50%;
+    display: none;
+    width: 500px;
+    background-image: url('./imgs/ticket-1026.svg');
+    z-index: 1;
+}
+
+/* botoes pesquisar*/
+.L_pesquisar-1{
+    display: flex;
+}
+.L_pesquisar-2{ 
+    top: 80%;
+    left: 50%;
+    display: none;
+    justify-content: center;
+    width: 305px;
+    background-image: url('./imgs/ticket-1026-btn.svg');
+    z-index: 0;
+}
+.L_btn-pesquisar:hover{
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* configs nome filtro - barra de pesquisa*/
+.L_filtro-pesquisa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    font-size: 25px;
+    text-transform: uppercase;
+    background-color: rgb(255, 255, 255);
+    z-index: 10;
+}
+.L_span-rotacionado{
+    border-bottom: 2px solid black;
+    height: 35px;
+    display: flex;
+    transform: rotate(-90deg); 
+}
+
+/*  barra de pesquisa */
+/* config universal para as options */
+/* ------------------------------- */
+.L_config-box-options{
+    width: 150px;
+    margin: 8px;
+    padding: 5px;
+    border: 2px solid rgb(192, 191, 191);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 0;
+}
+.L_config-span-1{
+    text-transform: uppercase;
+    color: rgb(110, 110, 110);
+}
+.L_config-span-2{
+    display: flex;
+    justify-content: center;
+}
+/* -------------------fim---------------------- */
+
+/* botao de pesquisa - barra de pesquisa */
+.L_pesquisar{
+    z-index: 10;
+}
+
+.L_btn-pesquisar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    padding: 27px;
+    margin: 8px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 5px 7px 1px rgba(0, 0, 0, 0.564);
+}
+
+/* @media responsividade ( :( ) */
+/* escalas responsivas */
+@media (max-height:666px) {
+    .L_barra-m{
+        top: 300px;
+    }
+}
+@media (max-width: 1123px) {
+    .L_titulo-diamond-1{
+        display: none;
+    }
+    .L_titulo-diamond-2{
+        width: 600px;
+     }
+    .L_titulo-diamond-2{
+        top: 40%;
+    }
+    .L_ticket-1{
+        display: flex;
+        top: 56%;
+        width: 500px;
+        height: 90px;
+        background-image: url('./imgs/ticket-1026.svg');
+    }
+    .L_none {
+      display: none;
+    }
+    .L_ticket-2{
+        top: 73%;
+        display: flex;
+    }
+    .L_pesquisar-2{
+        top: 90%;
+       display: flex;
+    }
+    .L_barra-m{
+        display: flex;
+    }
+}
+
+@media (max-width: 666px) {
+    .L_titulo-diamond-2{
+        width: 500px;
+    }
+}
+@media (max-width: 570px) {
+    .L_titulo-diamond-2{
+        width: 400px;
+    }
+    .L_ticket-1{
+        top: 57%;
+        width: 288px;
+        height: 100px;
+        background-image: url('./imgs/ticket-500.svg');
+    }
+    .L_none {
+      display: none;
+    }
+    .L_ticket-2{
+        top: 74%;
+        display: flex;
+        width: 288px;
+        height: 100px;
+        background-image: url('./imgs/ticket-500.svg');
+        
+    }
+    .L_pesquisar-2{
+        top: 90%;
+        width: 288px;
+        display: flex;
+        justify-content: center;
+        background-image: url('./imgs/fundo-pesquisar-2.svg');
+        
+    }
+    .L_config-span-1{
+        font-size: 13px;
+    }
+    .L_config-span-2{
+        font-size: 12px;
+    }
+    .L_config-box-options{
+        margin: 8px 8px 8px 2px;
+    }
+    .L_configs-univeral-p{
+        gap: 1px;
+    }
+}
+@media (max-width: 448px) {
+    .L_titulo-diamond-2{
+        width: 310px;
+    }
+}
+@media (max-width: 352px) {
+    .L_titulo-diamond-2{
+        width: 260px;
+    }
+}
+
+/* @media (max-height: 620px) {
+    .L_bg-image-home{
+        height: 120vh;
+    }
+}
+@media (max-height: 542px) {
+    .L_bg-image-home{
+        height: 130vh;
+    }
+}
+
+@media (max-height: 449px) {
+    .L_bg-image-home{
+        height: 170vh;
+    }
+}
+@media (max-height: 370px) {
+    .L_bg-image-home{
+        height: 210vh;
+    }
+} */
