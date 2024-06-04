@@ -1,30 +1,31 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- import icones-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!-- Swiper -->
-	<link rel="stylesheet" href="/assets/Swiper/swiper-bundle.min.css">
-	<!-- CSS by me -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="/assets/Swiper/swiper-bundle.min.css">
+    <!-- CSS by me -->
     <link rel="stylesheet" href="components\tela_inicial\ticket\index.css">
-	<link rel="stylesheet" href="assets/css/cssLucas.css">
-	<link rel="stylesheet" href="assets/css/cssLucas2.css">
-	<link rel="stylesheet" href="assets/css/bases.css">
-	<link rel="stylesheet" href="assets/css/bases-mobile.css">
+    <link rel="stylesheet" href="assets/css/cssLucas.css">
+    <link rel="stylesheet" href="assets/css/cssLucas2.css">
+    <link rel="stylesheet" href="assets/css/bases.css">
+    <link rel="stylesheet" href="assets/css/bases-mobile.css">
     <title>Document</title>
     <style>
-        main{
+        main {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .L_div{
+
+        .L_div {
             position: relative !important;
         }
-        .L_bg-image-home{
+
+        .L_bg-image-home {
             margin-top: 12px;
             width: 90vw;
             height: 95vh;
@@ -32,16 +33,16 @@
             border: 5px solid white !important;
             z-index: -1;
         }
-        
-        .L_image-bg{
-            
+
+        .L_image-bg {
+
             width: 100%;
             height: 100%;
-          
+
             object-position: center;
             object-fit: cover;
             z-index: -1;
-           
+
         }
 
         @media (max-height:671px) {
@@ -87,16 +88,12 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
     </style>
 </head>
 
-<main>
-    <div class='L_div' >
-    
-        <div class="L_bg-image-home">
-            <img class='L_image-bg' src="components\tela_inicial\bg-home1\imgs\background-home.png" alt="ss">
-        </div>
-    
+
+<div class='L_div'>
+    <div class="L_bg-image-home">
+        <img class='L_image-bg' src="components\tela_inicial\bg-home1\imgs\background-home.png" alt="ss">
     </div>
-</main>
+</div>

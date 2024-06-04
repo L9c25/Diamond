@@ -1,3 +1,4 @@
+
 	<div class="container-bases-P">
 		<h1 class="confort-title-mobile-P">CONFORT</h1>
 		<picture class="luxury-confort-P"></picture>
@@ -239,8 +240,8 @@
 			<div class="D_container3">
 				<!-- FORM -->
 				<div class="D_content2">
-					<div class="D_formcontact" id="contact">
-						<form action="" method="post">
+					<div class="D_formcontact">
+						<form id="contact" action="" method="post">
 							<h2>Entre em contato<br>conosco</h2>
 							<input type="text" name="nome" id=nome" placeholder="Nome">
 							<input type="email" name="email" id="email" placeholder="Email">
@@ -279,7 +280,6 @@
 			</div>
 		</div>
 	</section>
-
 	<!-- IMPORT SWIPER -->
 	<script src="./assets/Swiper/swiper-bundle.min.js"></script>
 	<!-- CONFIG SWIPER -->
