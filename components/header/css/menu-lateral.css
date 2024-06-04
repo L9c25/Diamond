@@ -1,0 +1,167 @@
+#L_menu-toggle {
+    z-index: 101; /* Garantir que o botão esteja sobre a barra lateral */
+}
+
+#L_sidebar {
+    width: 340px;
+    position: fixed;
+    left: -350px;
+    top: 0;
+    height: 100%;
+    padding-top: 25px;
+    background-color: #000000de;
+    backdrop-filter: blur(20px);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000; /* Menor que o botão para que o botão não seja sobreposto */
+}
+/* escalas */
+
+
+@media (max-width: 1299px) {
+    #L_sidebar{
+        width: 320px;
+    }
+}
+@media (max-width: 1161px) {
+    #L_sidebar{
+        width: 300px;
+    }
+}
+@media (max-width: 995px) {
+    #L_sidebar{
+        width: 280px;
+    }
+}
+@media (max-width: 753px) {
+    #L_sidebar{
+        width: 260px;
+    }
+}
+@media (max-width: 620px) {
+    #L_sidebar{
+        width: 240px;
+    }
+}
+@media (max-width: 503px) {
+    #L_sidebar{
+        width: 230px;
+    }
+}
+
+.L_ul-sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    
+    margin-top: 0vh;
+}
+@media (max-height:671px) {
+    .L_ul-sidebar {
+        margin-top: 0px;
+    }
+}
+#L_sidebar ul li a {
+    display: flex;
+    
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+.L_div-icon-sidebar{
+    display: flex;
+    
+    justify-content: right;
+    margin-right: 10px;
+    fill: white;
+}
+
+
+/* configs txt sidebar */
+.L_container-txt-sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.L_container-txt-sidebar>span{
+    height: 0px;
+    opacity: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: rgb(108, 107, 107);
+}
+.L_txt-sidebar{
+    display: flex;
+    justify-content: left;
+    width: 120px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 600; 
+    font-size: 20px;
+    color: gray !important;
+}
+
+
+/* configs tamanho dos icons */
+.L_svg-sidebar{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+.L_svg-sidebar-galeria{
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+/* configs cores dos icons */
+.L_svg-color-sidebar{
+    stroke: #878686;
+    fill: #878686;
+}
+.L_svg-color-sidebar-login{
+    stroke: #878686;
+}
+
+/* config do foco sidebar  */
+.L_focus-sidebar{
+    width: 4px;
+    height: 35px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px 1px transparent;
+    margin-right: 10px;
+    background-color: transparent;
+}
+
+
+/* hovers */
+.L_li-sidebar-options:hover .L_txt-sidebar{
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+
+.L_li-sidebar-options:hover .L_container-txt-sidebar>span{
+    height: 10px;
+    opacity: 1;
+    transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.L_li-sidebar-options:hover .L_focus-sidebar{
+    box-shadow: 0px 0px 6px 1px rgba(47, 106, 255, 0.478);
+    background-color: rgb(220, 220, 255);
+    transition: background 0.6s ease;
+}
+.L_li-sidebar-options:hover .L_svg-color-sidebar{
+    stroke: white;
+    fill: white;
+    transition: stroke 0.3s ease, fill 0.3s ease;
+}
+.L_li-sidebar-options:hover .L_svg-color-sidebar-login{
+    stroke: white;
+    transition: stroke 0.3s ease;
+}

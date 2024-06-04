@@ -19,6 +19,13 @@
 </head>
 
 <body>
+	<?php 
+		include "./components/header/header.php";
+		include "./components/tela_inicial/bg-home1/bg-home.php";
+		include "./components/tela_inicial/ticket/index.php";
+	?>
+
+
 	<div class="container-bases-P">
 		<h1 class="confort-title-mobile-P">CONFORT</h1>
 		<picture class="luxury-confort-P"></picture>

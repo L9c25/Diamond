@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    /* align-items: center; */
+    width: 100%;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../../assets/img/bg.jpg");
+	background-size: contain;
+	background-position: center;
+}
+.L_container-login{
+    display: flex;
+    flex-direction: row;
+    
+
+    width: 65vw;
+    height: auto;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+
+}
+
+/* container login 1 */
+.L_container-ca-1{
+    display: flex;
+    width: 50%;
+}
+.L_imagem-lo{
+    position: relative;
+    width: 100%;
+}
+
+#L_img-login{
+    
+    width: 100%;
+    height: 100%;
+}
+#L_logo-diamond-login{
+    position: absolute;
+    top: 25px;
+    left: 110px;
+    transform: translate(-50%, -50%);
+}
+
+/* container 2 login */
+
+.L_container-ca-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+    width: 50%;
+    gap: 30px;
+}
+
+.L_titulo-login > h1{
+    font-size: 45px;
+    font-weight: 700;
+}
+.L_titulo-login>p{
+    font-size: 23px;
+    font-style: italic;
+    color: #303030 ;
+}
+
+
+/*  form login */
+
+.L_form-cadastro{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 15px;
+    
+}
+.L_container-input{
+    display: flex;
+    flex-direction: column;
+
+}
+#login-input{
+    border: 3px solid #D0D0D0;
+    border-radius: 12px;
+    height: 40px;
+    color: #434242;
+    padding-left: 10px;
+    place-content: #434242;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+#login-input:hover{
+    border: 3px solid gray !important;
+    transition: border 0.3s ease-in-out;
+}
+#login-input:focus{
+    border: 3px solid gray !important;
+    transition: border 0.3s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.179);
+}
+
+
+#login-input::placeholder{
+    color: rgb(84, 83, 83);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* botão do login */
+
+.L_btn-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background-color: #0066FF;
+    border-radius: 50px;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.L_btn-login:hover,:focus{
+    box-shadow: 0 1px 7px #0066FF;
+    transition: box-shadow 0.5s ease;
+}
+
+
+/* opções de cadastro */
+.L_txt-cadastre-login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.L_ou{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    gap: 10px;
+}
+.L_barra-horizontal{
+    display: flex;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(198, 196, 196);
+}
+
+/* cadastre-se */
+
+.L_cadastre-se{
+    color: #434242;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* redes sociais */
+
+.L_redes-sociais{
+    display: flex;
+    gap: 20px;
+}
+.L_redes-sociais>img{
+    width: 25px;
+   
+}
+
+footer{
+    position: absolute;
+    left: 0;
+}
