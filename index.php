@@ -16,8 +16,13 @@
 	<link rel="stylesheet" href="assets/css/cssLucas2.css">
 	<link rel="stylesheet" href="assets/css/bases.css">
 	<link rel="stylesheet" href="assets/css/bases-mobile.css">
-	<link rel="stylesheet" href="assets/css/expanse.css">
-	<link rel="stylesheet" href="assets/css/expanse-mobile.css">
+	<link rel="stylesheet" href="./assets/css/expanse.css">
+    <link rel="stylesheet" href="./assets/css/expanse-mobile.css">
+    <link rel="stylesheet" href="./assets/Swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/Swiper/swiper-bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -69,8 +74,9 @@
 	</div>
 
 	<!-- Expanse -->
-	<div class="container-expanse-P">
+    <div class="container-expanse-P">
         <div class="box-expanse-P">
+
             <!-- Grupo de textos desktop -->
         
             <div class="group-text-expanse-P">
@@ -135,7 +141,7 @@
             <!-- carrousel dos itens -->
 
             <div class="swiper-container">
-                <div class="swiper mySwiper swp">
+                <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <picture class="img-card-P">
@@ -152,7 +158,7 @@
                             </div>
                         </div>
                 
-                        <div class="swipper-slide">
+                        <div class="swiper-slide">
                             <picture class="img-card-P"></picture>
                             <div class="box-text-card-P">
                                 <div class="title-box-P">
@@ -165,7 +171,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="swipper-slide">
+                        <div class="swiper-slide">
                             <picture class="img-card-P"></picture>
                             <div class="box-text-card-P">
                                 <div class="title-box-P">
@@ -178,7 +184,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="swipper-slide">
+                        <div class="swiper-slide">
                             <picture class="img-card-P"></picture>
                             <div class="box-text-card-P">
                                 <div class="title-box-P">
@@ -191,7 +197,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="swipper-slide">
+                        <div class="swiper-slide">
                             <picture class="img-card-P"></picture>
                             <div class="box-text-card-P">
                                 <div class="title-box-P">
@@ -204,7 +210,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="swipper-slide">
+                        <div class="swiper-slide">
                             <picture class="img-card-P"></picture>
                             <div class="box-text-card-P">
                                 <div class="title-box-P">
@@ -217,7 +223,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="swipper-slide">
+                        <div class="swiper-slide">
                             <picture class="img-card-P"></picture>
                             <div class="box-text-card-P">
                                 <div class="title-box-P">
@@ -243,6 +249,11 @@
 
         </div>
     </div>
+
+
+
+
+
 
 	<!-- SESSAO CARD COM NOVIDADES -->
 	<section class="D_news">
@@ -488,6 +499,8 @@
 
 	<!-- IMPORT SWIPER -->
 	<script src="./assets/Swiper/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="./assets/js/carousel-expanse.js"></script>
 	<!-- CONFIG SWIPER -->
 	<script>
 		var swiper = new Swiper(".mySwiper2", {
