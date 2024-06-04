@@ -110,7 +110,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <!-- container esquero do container do login  -->
         <div class="L_container-ca-1">
             <div class="L_imagem-lo">
-                <img id="L_img-login" src="./imgs/img-cadastro.png" alt="">
+                <img id="L_img-cad" src="./imgs/img-cadastro.png" alt="">
+                <img id="L_img-cad2" src="./imgs/img-cadastro2.png" alt="">
                 <img id="L_logo-diamond-login" src="./logo-diamond-white.png" alt="">
             </div>
         </div>

@@ -35,13 +35,31 @@ body {
 }
 .L_imagem-lo{
     position: relative;
+    
+    border-radius: 20px;
+    border: 5px solid white;
     width: 100%;
 }
 
-#L_img-login{
-    
+
+
+#L_img-cad{
+    display: flex;
+    object-position: center;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
+}
+
+#L_img-cad2{
+    display: none;
+    object-position: center;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;  
 }
 #L_logo-diamond-login{
     position: absolute;
@@ -70,8 +88,8 @@ body {
     font-size: 23px;
     font-style: italic;
     color: #303030 ;
+    text-align: center;
 }
-
 
 /*  form login */
 
@@ -179,4 +197,64 @@ body {
 footer{
     position: absolute;
     left: 0;
+}
+
+
+@media (max-width: 1215px) {
+    .L_container-login{
+        
+        flex-direction: column;
+        width: 490px;
+        height: auto;
+        
+    }
+    .L_container-ca-1{
+        display: flex;
+        width: 100%;
+    }
+    .L_container-ca-2{
+        
+        display: flex;
+        width: 100%;
+        height: 545px;
+        margin-bottom: 20px;
+    }
+    #L_img-cad2{
+        display: flex;
+    }
+    #L_img-cad{
+        display: none;
+    }
+    .L_imagem-lo{
+        position: relative;
+        border: none;
+        border-radius: 20px;
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 561px) {
+    .L_container-login{
+        width: 90vw;
+        height: auto;
+    }
+}
+@media (max-width: 376px) {
+    .L_titulo-login>h1{
+        font-size: 35px;
+    }
+    .L_titulo-login>p{
+        font-size: 16px;
+    }
+    .L_container-input>span{
+        font-size: 14px;
+    }
+
+    .L_ou{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
 }
