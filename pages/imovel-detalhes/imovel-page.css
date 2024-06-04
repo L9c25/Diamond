@@ -4,14 +4,10 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
     /* align-items: center; */
     background-color: black;
-    width: 100%;
     height: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 .L_container-imovel{
     display: flex;
@@ -295,6 +291,10 @@ body{
     justify-content: space-between;
     width: 160px;
     height: auto;
+}
+
+footer{
+    position: absolute;
 }
 
 @media (max-width: 1207.5px) {

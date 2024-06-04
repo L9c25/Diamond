@@ -282,6 +282,8 @@
 		font-size: 80px;
 		position: relative;
 		letter-spacing: 10px;
+		color: white;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.D_interact {
@@ -330,6 +332,7 @@
 		font-size: 40px;
 		position: absolute;
 		top: 50%;
+		color: white;
 	}
 	.arrow-mobile-left{
 		left: -35px;

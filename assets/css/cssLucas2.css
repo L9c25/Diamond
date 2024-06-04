@@ -148,6 +148,7 @@
 	border-bottom: 2px solid white;
 	padding: 10px;
 	background-color: rgba(1,1,1,0);
+	color: white;
 }
 
 #contact textarea{
@@ -155,9 +156,10 @@
 	outline: none;
 	border: none;
 	border-bottom: 3px solid white;
-	padding: 10px;
+	padding: 0px 10px 0px 10px;
 	background-color: rgba(1,1,1,0);
 	resize: vertical;
+	color: white;
 }
 
 #contact button {
@@ -216,6 +218,8 @@
 		position: absolute;
 		letter-spacing: 10px;
 		font-weight: 800;
+		color: white;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.D_container2{

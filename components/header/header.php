@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<?php 
+// Incluir arquivo de configuração
+require_once "./config/connect.php";
+?>
 
 <head>
     <link rel="stylesheet" href="./components/header/header.css">
     <link rel="stylesheet" href="./components/header/css/menu-lateral.css">
     <script src="assets\jquery-3.7.1.min.js"></script>
-    
 </head>
 
 
@@ -50,7 +51,7 @@
                     </div>
 
                     <div class="L_container-txt-sidebar">
-                        <a class="L_txt-sidebar" href="#">Login</a>
+                        <a class="L_txt-sidebar" href="">Login</a>
                         <span>faça o login</span>
                     </div>
                 </li>

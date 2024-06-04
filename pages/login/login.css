@@ -182,6 +182,12 @@ body {
    
 }
 
+footer{
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
 @media (max-width: 1215px) {
     .L_container-login{
         
