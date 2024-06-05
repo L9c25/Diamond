@@ -10,7 +10,9 @@
 	$response = $d->deletImovel($I_id, $I_img);
 
 	if ($response){
-		return($response);
+		$r = 1;
+		echo json_encode($r);
 	} else{
-		return($response);
+		$r = 0;
+		echo json_encode($r);
 	}

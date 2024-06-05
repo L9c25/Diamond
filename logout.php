@@ -11,4 +11,4 @@
 	session_destroy();
 
 	// Redirecionando a pag de login
-	print "<script>location.href = './pages/login/login.php'</script>";
+	print "<script>location.href = 'index.php'</script>";

@@ -1,6 +1,15 @@
+html{
+    scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
+}
+
+a{
+    color: black;
+    text-decoration: none;
 }
 
 header{
@@ -25,6 +34,7 @@ ul{
     display: flex;
     gap: 20px;
     list-style: none;
+    margin: 0;
 }
 li{
     display: flex;
@@ -74,6 +84,7 @@ li{
     border-radius: 50px;
     cursor: pointer;
     transition: background 0.2s ease-in-out;
+    box-sizing: content-box;
 }
 
 .line{

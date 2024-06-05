@@ -1,3 +1,8 @@
+<?php
+
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -27,13 +32,26 @@
 
 <body>
 	<?php 
-		include "./components/header/header.php";
+		if (isset($_SESSION["adm"])){
+			if ($_SESSION["adm"] == 1){
+				include "./components/header/headeradm.php";
+			} else if($_SESSION["adm"] == 0){
+				include "./components/header/header.php";
+			}
+		} else{
+			include "./components/header/headerguest.php";
+		}
+
+		
+		
+
+
 		include "./components/tela_inicial/bg-home1/bg-home.php";
 		include "./components/tela_inicial/ticket/index.php";
 	?>
 
 
-	<div class="container-bases-P">
+	<div class="container-bases-P" id="D_services">
 		<h1 class="confort-title-mobile-P">CONFORT</h1>
 		<picture class="luxury-confort-P"></picture>
 		<div class="bg-nave">
@@ -74,7 +92,7 @@
 	</div>
 
 	<!-- SESSAO CARD COM NOVIDADES -->
-	<section class="D_news">
+	<section class="D_news" id="D_galeria">
 		<!-- TITLES DESKTOP & MOBILE -->
 		<div class="D_TitlenewsDesktop"><img src="assets/img/NEWSDESKTOP.svg" alt="" srcset=""></div>
 		<h2 class="D_TitlenewsMobile">NEWS</h2>
@@ -88,7 +106,7 @@
 				<div class="swiper-slide">
 					<div class="D_container">
 						<div class="D_text">
-							<h3>Confira o Mais Novo<br> Lançamento da<br> Diamond</h3>
+							<h3>Confira o Mais Novo <?php echo $_SESSION["adm"];?><br> Lançamento da<br> Diamond</h3>
 							<p>Descubra o mais recente lançamento: uma habitação orbitando Júpiter, oferecendo
 								vistas
 								deslumbrantes
@@ -265,7 +283,7 @@
 	</section>
 
 	<!-- SESSAO DE CONTATO  -->
-	<section class="D_contact">
+	<section class="D_contact" id="D_contact">
 		<div class="D_TitlecontactDesktop"><img src="assets/img/CONTACTDESTOP.svg" alt="" srcset=""></div>
 		<div class="D_TitlecontactMobile">CONTACT</div>
 

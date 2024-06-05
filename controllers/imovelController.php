@@ -205,7 +205,7 @@ class daoMysql implements ImDAO
 		$result = $stmt->fetch(); // Usando fetch() pois esperamos apenas um registro
 
 		// Verifica se o imovel está disponível: se tiver ele pode ser deletado...
-		if ($result['disponibilidade'] == 1) {
+		if ($result["disponibilidade"] == 1) {
 			try {
 				// Selecionando as Foreign Keys
 				$stmt = $this->pdo->prepare("SELECT fk_comodidades, fk_endereco FROM imovel WHERE id = :id_a");

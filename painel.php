@@ -4,18 +4,23 @@
 // Incluir arquivo de conexão com o banco
 require_once "./config/connect.php";
 require_once "./controllers/imovelController.php";
+
+session_start();
+// se n for adm volta pra home
+if ($_SESSION["adm"] != 1){
+	header("location: index.php");
+}
 ?>
 
-<head?php // Inicia a sessão session_start(); ?>
+<head>
 
 	<!DOCTYPE html>
 	<html lang="pt-br">
 
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
-		<title>Painel</title>
+		<title>DashBoard</title>
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -33,6 +38,9 @@ require_once "./controllers/imovelController.php";
 				background-size: contain;
 				background-position: center;
 			}
+			.swal2-title{
+				font-size: 1.5rem !important;
+			}
 		</style>
 	</head>
 
@@ -46,7 +54,7 @@ require_once "./controllers/imovelController.php";
 				<div class="table-title">
 					<div class="row">
 						<div class="col-sm-6">
-							<h2>Config <b>Imovel</b></h2>
+							<h2><b>Imoveis</b></h2>
 						</div>
 						<div class="col-sm-6">
 							<a class="btn btn-success" data-toggle="modal" onclick="location.href='create.php'"><i
@@ -72,10 +80,8 @@ require_once "./controllers/imovelController.php";
 							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody>
-
-
-						<?php
+					<tbody id="content">
+					<?php
 						// Defenindo variaveis:
 						$HOST = $_SERVER['HTTP_HOST'];
 
@@ -111,7 +117,7 @@ require_once "./controllers/imovelController.php";
 								<td>R$<?php echo number_format($imv->getPrecoCompra(), 2, ",", "."); ?>
 								</td>
 								<td>
-									<?php echo $imv->getDisponivel() ?>
+									<?php echo $imv->getDisponivel() ? "Disponivel" : "Indisponivel" ?>
 								</td>
 								<td>
 									<a class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
@@ -159,7 +165,7 @@ require_once "./controllers/imovelController.php";
 						</div>
 						<div class="modal-footer">
 							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-							<input type="submit" id="conDelet" class="btn btn-danger" value="Delete">
+							<input id="conDelet" class="btn btn-danger" value="Delete">
 						</div>
 					</form>
 				</div>
@@ -183,26 +189,67 @@ require_once "./controllers/imovelController.php";
 								img: imvImg
 							},
 							success: function (response) {
+								console.log(response)
+								var resp = response;
+
 								//? Reserva deletada com suceso
-								const Toast = Swal.mixin({
-									toast: true,
-									position: "top-end",
-									showConfirmButton: false,
-									timer: 1500,
-									timerProgressBar: true,
-									didOpen: (toast) => {
-										toast.onmouseenter = Swal.stopTimer;
-										toast.onmouseleave = Swal.resumeTimer;
-									}
-								});
-								Toast.fire({
-									icon: "success",
-									title: "Acomodação Deletada"
-								});
+								if (resp == 1) {
+									console.log("deletado")
+
+									const Toast = Swal.mixin({
+										toast: true,
+										position: "top-end",
+										showConfirmButton: false,
+										timer: 3000,
+										timerProgressBar: true,
+										didOpen: (toast) => {
+											toast.onmouseenter = Swal.stopTimer;
+											toast.onmouseleave = Swal.resumeTimer;
+										}
+										});
+										Toast.fire({
+											icon: "success",
+											title: "Imovel Deletado"
+										});
+								}
+
+								else if (resp != 1) {
+									console.log("n deletado")
+									
+									const Toast = Swal.mixin({
+										toast: true,
+										position: "top-end",
+										showConfirmButton: false,
+										timer: 3000,
+										timerProgressBar: true,
+										didOpen: (toast) => {
+											toast.onmouseenter = Swal.stopTimer;
+											toast.onmouseleave = Swal.resumeTimer;
+										}
+										});
+										Toast.fire({
+											icon: "error",
+											title: "Não foi possivel deletar o Imovel pois ele esta sendo utilizado"
+										});
+								}
 							},
 							error: function (xhr, status, error) {
 								//? Reserva Ñ foi deletada
-								alert("Ocorreu um erro ao tentar deletar o imovel.")
+								const Toast = Swal.mixin({
+										toast: true,
+										position: "top-end",
+										showConfirmButton: false,
+										timer: 3000,
+										timerProgressBar: true,
+										didOpen: (toast) => {
+											toast.onmouseenter = Swal.stopTimer;
+											toast.onmouseleave = Swal.resumeTimer;
+										}
+										});
+										Toast.fire({
+										icon: "error",
+										title: "Ocorreu algum erro"
+									});
 							}
 						})
 					})

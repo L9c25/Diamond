@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar credenciais
     if (empty($username_err) && empty($password_err)) {
         // Prepare uma declaração selecionada
-        $sql = "SELECT id, username, senha FROM usuario WHERE username = :username";
+        $sql = "SELECT id, username, senha, adm FROM usuario WHERE username = :username";
 
         if ($stmt = $pdo->prepare($sql)) {
             // Vincule as variáveis à instrução preparada como parâmetros
@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $id = $row["id"];
                         $username = $row["username"];
                         $hashed_password = $row["senha"];
+                        $adm = $row["adm"];
                         if (password_verify($password, $hashed_password)) {
                             // A senha está correta, então inicie uma nova sessão
                             session_start();
@@ -58,6 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["logado"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
+                            $_SESSION["adm"] = $adm;
+
 
                             // Redirecionar o usuário para a página principal
                             header("location: ../../index.php");
