@@ -12,7 +12,7 @@ class daoMysql implements ImDAO
 
 
 	//! Listar os imoveis ↓↓↓
-	public function listar(string $id = null, bool $disponibilidade = null)
+	public function listar(string $id = null, bool $disponibilidade = null, string $like = null)
 	{
 		// $id -> Aplica o filtro de ID na query
 		// $disponibilidade Aplica o filtro de disponibilidade na query
@@ -34,28 +34,39 @@ class daoMysql implements ImDAO
 		JOIN endereco en on i.fk_endereco = en.id
 		JOIN ciep ci on en.ciep = ci.id ";
 
-		if ($id != null) {
-			// select em um imovel especifico
-			$query .= "where i.id = $id ";
-			// Filtro de disponibilidade... 1 = disponivel, 0 = ñ disponivel
-			if (isset($disponibilidade)) {
-				$query .= $disponibilidade ? "AND disponibilidade = 1" : "AND disponibilidade = 0";
-			}
-			;
-		} else {
-			// Filtro de disponibilidade... 1 = disponivel, 0 = ñ disponivel
-			if (isset($disponibilidade)) {
-				$query .= $disponibilidade ? "WHERE disponibilidade = 1" : "WHERE disponibilidade = 0";
-			}
-			;
-		}
+		 $conditions = [];
+    if ($id != null) {
+        $conditions[] = "i.id = :id";
+    }
+    if (isset($disponibilidade)) {
+        $conditions[] = "i.disponibilidade = :disponibilidade";
+    }
+    if ($like != null) {
+        $conditions[] = "i.nome LIKE :like";
+    }
+
+    if (count($conditions) > 0) {
+        $query .= "WHERE " . implode(' AND ', $conditions);
+    }
+
+    $stmt = $this->pdo->prepare($query);
+
+    if ($id != null) {
+        $stmt->bindParam(':id', $id);
+    }
+    if (isset($disponibilidade)) {
+        $stmt->bindParam(':disponibilidade', $disponibilidade, PDO::PARAM_BOOL);
+    }
+    if ($like != null) {
+        $likeParam = "%" . $like . "%";
+        $stmt->bindParam(':like', $likeParam);
+    }
 
 
+		$stmt->execute();
 
-		$sql = $this->pdo->query($query);
-
-		if ($sql->rowCount() > 0) {
-			$dados = $sql->fetchAll();
+		if ($stmt->rowCount() > 0) {
+			$dados = $stmt->fetchAll();
 
 			foreach ($dados as $item) {
 				$p = new Imovel();

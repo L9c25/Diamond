@@ -7,7 +7,7 @@ require_once "./controllers/imovelController.php";
 
 session_start();
 // se n for adm volta pra home
-if ($_SESSION["adm"] != 1){
+if ($_SESSION["adm"] != 1) {
 	header("location: index.php");
 }
 ?>
@@ -38,228 +38,240 @@ if ($_SESSION["adm"] != 1){
 				background-size: contain;
 				background-position: center;
 			}
-			.swal2-title{
+
+			.swal2-title {
 				font-size: 1.5rem !important;
 			}
 		</style>
 	</head>
 
 	<?php
-	include "./components/header/header.php";
+	include "./components/header/headerPainel.php";
 	?>
 
-	<body>
-		<div class="">
-			<div class="table-wrapper">
-				<div class="table-title">
-					<div class="row">
-						<div class="col-sm-6">
-							<h2><b>Imoveis</b></h2>
-						</div>
-						<div class="col-sm-6">
-							<a class="btn btn-success" data-toggle="modal" onclick="location.href='create.php'"><i
-									class="material-icons">&#xE147;</i> <span onclick="location.href='create.php'">Add
-									Imovel</span></a>
-						</div>
+<body>
+	<div class="">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+
+					<div class="pesq">
+						<h2><b>Nossos Imoveis</b></h2>
+						<form class="search-container">
+							<input type="text" id="search-bar" placeholder="Busca" required>
+							<img class="search-icon"
+								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
+						</form>
+					</div>
+					<div>
+						<a class="btn btn_add" data-toggle="modal" onclick="location.href='create.php'"><i
+								class="material-icons">&#xE147;</i> <span onclick="location.href='create.php'">Add
+								Imovel</span></a>
 					</div>
 				</div>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="selectAll">
-									<label for="selectAll"></label>
-								</span>
-							</th>
-							<th>Foto</th>
-							<th>Nome</th>
-							<th>Endereço</th>
-							<th>Preço de compra</th>
-							<th>Disponibilidade</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody id="content">
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>
+						</th>
+						<th>Foto</th>
+						<th>Nome</th>
+						<th>Endereço</th>
+						<th>Preço de compra</th>
+						<th>Disponibilidade</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="content">
 					<?php
-						// Defenindo variaveis:
-						$HOST = $_SERVER['HTTP_HOST'];
+					// Defenindo variaveis:
+					$HOST = $_SERVER['HTTP_HOST'];
 
-						$d = new daoMysql($pdo);
-						$dados = $d->listar($id = null, $disponibilidade = null);
-						$qtd = count($dados);
-						foreach ($dados as $imv):
-							$id = $imv->getId();
-							?>
+					$d = new daoMysql($pdo);
+					$dados = $d->listar($id = null, $disponibilidade = null);
+					$qtd = count($dados);
+					foreach ($dados as $imv):
+						$id = $imv->getId();
+						?>
 
-							<tr>
+						<tr>
 
-								<td>
-									<span class="custom-checkbox">
-										<input type="checkbox" id="checkbox<?php echo $id ?>" name="options[]"
-											value="<?php echo $id ?>">
-										<label for="checkbox<?php echo $id ?>"></label>
-									</span>
-									<span class="imvID" style="display: none"><?php echo $id ?></span>
-									<span class="imvImg" style="display: none"><?php echo $imv->getImg() ?></span>
-								</td>
-								<td>
-									<picture class="img-card"
-										style="background-image: url(./assets/img/imovel/<?php echo $imv->getImg() ?>);">
-									</picture>
-								</td>
-								<td><?php echo $imv->getNome() ?></td>
-								<td>
-									<p class="desc">
-										<?php echo $imv->getEndereco()['rua'] . ', ' . $imv->getEndereco()['bairro'] . ', ' . "n°" . $imv->getEndereco()['numero'] . ', ' . $imv->getEndereco()['planeta'] ?>
-									</p>
-								</td>
-								<td>R$<?php echo number_format($imv->getPrecoCompra(), 2, ",", "."); ?>
-								</td>
-								<td>
-									<?php echo $imv->getDisponivel() ? "Disponivel" : "Indisponivel" ?>
-								</td>
-								<td>
-									<a class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-											title="Edit"
-											onclick="location.href='EditImovel.php/?id=<?php echo $id ?>'">&#xE254;</i></a>
-									<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
-											class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-								</td>
-							</tr>
+							<td>
+								<span class="custom-checkbox">
+									<input type="checkbox" id="checkbox<?php echo $id ?>" name="options[]"
+										value="<?php echo $id ?>">
+									<label for="checkbox<?php echo $id ?>"></label>
+								</span>
+								<span class="imvID" style="display: none"><?php echo $id ?></span>
+								<span class="imvImg" style="display: none"><?php echo $imv->getImg() ?></span>
+							</td>
+							<td>
+								<picture class="img-card"
+									style="background-image: url(./assets/img/imovel/<?php echo $imv->getImg() ?>);">
+								</picture>
+							</td>
+							<td><?php echo $imv->getNome() ?></td>
+							<td>
+								<p class="desc">
+									<?php echo $imv->getEndereco()['rua'] . ', ' . $imv->getEndereco()['bairro'] . ', ' . "n°" . $imv->getEndereco()['numero'] . ', ' . $imv->getEndereco()['planeta'] ?>
+								</p>
+							</td>
+							<td>R$<?php echo number_format($imv->getPrecoCompra(), 2, ",", "."); ?>
+							</td>
+							<td>
+								<?php echo $imv->getDisponivel() ? "Disponivel" : "Indisponivel" ?>
+							</td>
+							<td>
+								<a class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+										title="Edit"
+										onclick="location.href='EditImovel.php/?id=<?php echo $id ?>'">&#xE254;</i></a>
+								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+										data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							</td>
+						</tr>
 
-						<?php endforeach ?>
-					</tbody>
-				</table>
+					<?php endforeach ?>
+				</tbody>
+			</table>
+			<div class="clearfix">
+				<div class="hint-text">Vizualiznado <b><?php echo $qtd ?></b> Imoveis</div>
+			</div>
+		</div>
+	</div>
 
 
-				<div class="clearfix">
-					<div class="hint-text">Vizualiznado <b><?php echo $qtd ?></b> de <b><?php echo $qtd ?></b> Imoveis
+	<!-- Delete Modal HTML -->
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Deletar Acomodação</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<ul class="pagination">
-						<li class="page-item disabled"><a href="#">Previous</a></li>
-						<li class="page-item"><a href="#" class="page-link">1</a></li>
-						<li class="page-item"><a href="#" class="page-link">2</a></li>
-						<li class="page-item active"><a href="#" class="page-link">3</a></li>
-						<li class="page-item"><a href="#" class="page-link">4</a></li>
-						<li class="page-item"><a href="#" class="page-link">5</a></li>
-						<li class="page-item"><a href="#" class="page-link">Next</a></li>
-					</ul>
-				</div>
+					<div class="modal-body">
+						<p>Tem certeza que deseja deletar essa acomodação?</p>
+						<p class="text-warning"><small>Essa ação não pode ser desfeita.</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input id="conDelet" class="btn btn-danger" value="Delete">
+					</div>
+				</form>
 			</div>
 		</div>
+	</div>
 
 
-		<!-- Delete Modal HTML -->
-		<div id="deleteEmployeeModal" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form>
-						<div class="modal-header">
-							<h4 class="modal-title">Deletar Acomodação</h4>
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						</div>
-						<div class="modal-body">
-							<p>Tem certeza que deseja deletar essa acomodação?</p>
-							<p class="text-warning"><small>Essa ação não pode ser desfeita.</small></p>
-						</div>
-						<div class="modal-footer">
-							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-							<input id="conDelet" class="btn btn-danger" value="Delete">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+	<script>
+		$(document).ready(function (e) {
 
 
-		<script>
-			$(document).ready(function (e) {
+			$(".delete").click(function (e) {
+				imvID = $(this).closest('tr').find(".imvID").text();
+				imvImg = $(this).closest('tr').find(".imvImg").text();
+				$("#conDelet").click(function (e) {
+					$.ajax({
+						url: 'DeletImovel.php',
+						type: 'POST',
+						data: {
+							imvID: imvID,
+							img: imvImg
+						},
+						success: function (response) {
+							console.log(response)
+							var resp = response;
+
+							//? Reserva deletada com suceso
+							if (resp == 1) {
 
 
-				$(".delete").click(function (e) {
-					imvID = $(this).closest('tr').find(".imvID").text();
-					imvImg = $(this).closest('tr').find(".imvImg").text();
-					$("#conDelet").click(function (e) {
-						$.ajax({
-							url: 'DeletImovel.php',
-							type: 'POST',
-							data: {
-								imvID: imvID,
-								img: imvImg
-							},
-							success: function (response) {
-								console.log(response)
-								var resp = response;
-
-								//? Reserva deletada com suceso
-								if (resp == 1) {
-									console.log("deletado")
-
-									const Toast = Swal.mixin({
-										toast: true,
-										position: "top-end",
-										showConfirmButton: false,
-										timer: 3000,
-										timerProgressBar: true,
-										didOpen: (toast) => {
-											toast.onmouseenter = Swal.stopTimer;
-											toast.onmouseleave = Swal.resumeTimer;
-										}
-										});
-										Toast.fire({
-											icon: "success",
-											title: "Imovel Deletado"
-										});
-								}
-
-								else if (resp != 1) {
-									console.log("n deletado")
-									
-									const Toast = Swal.mixin({
-										toast: true,
-										position: "top-end",
-										showConfirmButton: false,
-										timer: 3000,
-										timerProgressBar: true,
-										didOpen: (toast) => {
-											toast.onmouseenter = Swal.stopTimer;
-											toast.onmouseleave = Swal.resumeTimer;
-										}
-										});
-										Toast.fire({
-											icon: "error",
-											title: "Não foi possivel deletar o Imovel pois ele esta sendo utilizado"
-										});
-								}
-							},
-							error: function (xhr, status, error) {
-								//? Reserva Ñ foi deletada
 								const Toast = Swal.mixin({
-										toast: true,
-										position: "top-end",
-										showConfirmButton: false,
-										timer: 3000,
-										timerProgressBar: true,
-										didOpen: (toast) => {
-											toast.onmouseenter = Swal.stopTimer;
-											toast.onmouseleave = Swal.resumeTimer;
-										}
-										});
-										Toast.fire({
-										icon: "error",
-										title: "Ocorreu algum erro"
-									});
+									toast: true,
+									position: "top-end",
+									showConfirmButton: false,
+									timer: 3000,
+									timerProgressBar: true,
+									didOpen: (toast) => {
+										toast.onmouseenter = Swal.stopTimer;
+										toast.onmouseleave = Swal.resumeTimer;
+									}
+								});
+								Toast.fire({
+									icon: "success",
+									title: "Imovel Deletado"
+								});
 							}
-						})
+
+							else if (resp != 1) {
+
+
+								const Toast = Swal.mixin({
+									toast: true,
+									position: "top-end",
+									showConfirmButton: false,
+									timer: 3000,
+									timerProgressBar: true,
+									didOpen: (toast) => {
+										toast.onmouseenter = Swal.stopTimer;
+										toast.onmouseleave = Swal.resumeTimer;
+									}
+								});
+								Toast.fire({
+									icon: "error",
+									title: "Não foi possivel deletar o Imovel pois ele esta sendo utilizado"
+								});
+							}
+						},
+						error: function (xhr, status, error) {
+							//? Reserva Ñ foi deletada
+
+							const Toast = Swal.mixin({
+								toast: true,
+								position: "top-end",
+								showConfirmButton: false,
+								timer: 3000,
+								timerProgressBar: true,
+								didOpen: (toast) => {
+									toast.onmouseenter = Swal.stopTimer;
+									toast.onmouseleave = Swal.resumeTimer;
+								}
+							});
+							Toast.fire({
+								icon: "error",
+								title: "Ocorreu algum erro"
+							});
+						}
 					})
-				});
+				})
 			});
+		});
 
 
-		</script>
+		$("#search-bar").on("input", function () {
+			var searchQuery = $(this).val();
 
-		<script src="./assets/Sweetalert2/sweetalert2.all.min.js"></script>
-	</body>
+			$.ajax({
+				url: 'buscar.php', // URL do script PHP que processará a busca
+				type: 'POST',
+				data: { query: searchQuery },
+				success: function (response) {
+					$("#content").html(response); // Atualiza o conteúdo da tabela
+				},
+				error: function (xhr, status, error) {
+					console.error("Erro na requisição AJAX: " + status + " " + error);
+				}
+			});
+		});
 
-	</html>
+	</script>
+
+	<script src="./assets/Sweetalert2/sweetalert2.all.min.js"></script>
+</body>
+
+</html>

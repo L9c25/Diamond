@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 ?>
 
@@ -106,7 +105,7 @@
 				<div class="swiper-slide">
 					<div class="D_container">
 						<div class="D_text">
-							<h3>Confira o Mais Novo <?php echo $_SESSION["adm"];?><br> Lançamento da<br> Diamond</h3>
+							<h3>Confira o Mais Novo<br> Lançamento da<br> Diamond</h3>
 							<p>Descubra o mais recente lançamento: uma habitação orbitando Júpiter, oferecendo
 								vistas
 								deslumbrantes

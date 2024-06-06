@@ -87,13 +87,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
 </head>
 
 <body>
@@ -113,7 +114,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="L_titulo-login">
                     <h1>Olá Terráquio</h1>
                     <p>Seja Bem-Vindo ao Futuro</p>
+                    <?php
+                    // exibe uma caixa indicando erro no login
+                    if (!empty($login_err)) {
+                        echo '<div class="alert alert-danger p-1 m-0">' . $login_err . '</div>';
+                    }
+                    ?>
                 </div>
+
                 <div class="L_form-login">
                     <input id="login-input" type="text" required placeholder="Usuário" name="username" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                     <span class="invalid-feedback">
@@ -122,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- <br> -->
                     <input id="login-input" type="password" required placeholder="Senha" name="password" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                     <span class="invalid-feedback">
-                            <?php echo $password_err; ?>
+                        <?php echo $password_err; ?>
                     </span>
                     <!-- <br> -->
                     <input class="L_btn-login" type="submit" value="login">
@@ -144,15 +152,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <img src="./imgs/x-social.svg" alt="">
                                 <img src="./imgs/ins-social.svg" alt="">
                                 <img src="./imgs/f-social.svg" alt="">
+
                     </div>
     </form>
-    <script src="assets\bootstrap\js\bootstrap.bundle.min.js"></script>
-    <script src="assets\js\jquery-3.7.1.min.js"></script>
+    <script src="../../assets\bootstrap\js\bootstrap.bundle.min.js"></script>
+    <script src="../../assets/jquery-3.7.1.min.js"></script>
     <script>
-    $(document).ready(function () {
-        $('.alert').fadeOut(3000)
-    })
-</script>
+        $(document).ready(function () {
+            $('.alert').fadeOut(3000)
+        })
+    </script>
 </body>
 
 </html>

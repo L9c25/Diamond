@@ -94,12 +94,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="./cadastro.css">
 </head>
 
@@ -137,7 +137,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="L_container-input">
                     <span>Por favor, confirme a Senha.</span>
                     <input name="confirm_password" id="login-input" type="password" required placeholder="Senha" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                    <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                    <span class="invalid-feedback "><?php echo $confirm_password_err; ?></span>
                 </div>
 
                 <input class="L_btn-login" type="submit" value="Cadastro">
