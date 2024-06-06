@@ -41,8 +41,8 @@ if (isset($_SESSION["adm"])) {
 
 <body>
     <?php
-    include ("./pages/imovel-detalhes/imovel-detail.php")
-        ?>
+    include ("./pages/imovel-detalhes/imovel-detail.php");
+    ?>
+        
 </body>
-
 </html>

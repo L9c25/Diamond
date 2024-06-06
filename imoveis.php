@@ -28,5 +28,6 @@
 	}
 
 	include "./pages/imoveis/imoveis.php";
+		include "./components/footer/footer.php";
 	?>
 

@@ -1,0 +1,21 @@
+
+.L_footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95vw;
+    height: auto;
+    min-height: 100px;
+    background-color: black;
+
+    border-radius: 20px;
+}
+.L_span-footer{
+    display: flex;
+    color: white;
+    gap: 20px;
+}
+.L_span-footer>span{
+    cursor: pointer;
+}

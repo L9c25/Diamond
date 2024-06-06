@@ -2,8 +2,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./pages/imovel-detalhes/imovel-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
     <script src="./assets/jquery-3.7.1.min.js"></script>
 </head>
 
@@ -33,7 +32,7 @@
                 </div> -->
             <!-- Seu conteúdo aqui -->
             <div class="L_1-2-imagem">
-                <img src="./assets/img\imovel\<?php echo $imv->getImg()?>" class="img-fluid" onclick="openPhotoSwipe();">
+                <img src="./assets/img\imovel\<?php echo $imv->getImg() ?>" class="img-fluid" onclick="openPhotoSwipe();">
             </div>
 
             <!-- PhotoSwipe core JS files -->
@@ -77,7 +76,7 @@
             </div>
 
             <!-- div descrição -->
-            <div class="L_div-1-3">
+            <div class="L_div-1-3 L_display-none">
                 <div class="L_1-3-desc">
                     <h1>Descrição</h1>
                     <span><?php echo $imv->getDescricao() ?></span>
@@ -110,37 +109,53 @@
             </div>
             <!-- comodidades -->
             <div class="L_div-comodidades">
-                <?php if ($imv->getComodidades()['piscina'] == 1): ?>
+                <?php if ($imv->getComodidades()['piscina'] == 1) : ?>
                     <div class="L_comodidades"><i class="fa-solid fa-water-ladder"></i><span>Piscina</span>
                     </div>
                 <?php endif; ?>
                 <!-- AreaLazer -->
-                <?php if ($imv->getComodidades()['areaLazer'] == 1): ?>
+                <?php if ($imv->getComodidades()['areaLazer'] == 1) : ?>
                     <div class="L_comodidades"><i class="fa-solid fa-people-roof"></i><span>Área deLazer</span></div>
                 <?php endif; ?>
                 <!-- VARANDA -->
-                <?php if ($imv->getComodidades()['varanda'] == 1): ?>
+                <?php if ($imv->getComodidades()['varanda'] == 1) : ?>
                     <div class="L_comodidades"><i class="fa-solid fa-house"></i><span>Varanda</span>
                     </div>
                 <?php endif; ?>
                 <!-- ACADEMIA -->
-                <?php if ($imv->getComodidades()['academia'] == 1): ?>
+                <?php if ($imv->getComodidades()['academia'] == 1) : ?>
                     <div class="L_comodidades"><i class="fa-solid fa-dumbbell"></i><span>Academia</span></div>
                 <?php endif; ?>
                 <!-- ESTACIONAMENTO -->
-                <?php if ($imv->getComodidades()['estacionamento'] == 1): ?>
+                <?php if ($imv->getComodidades()['estacionamento'] == 1) : ?>
                     <div class="L_comodidades"><i class="fa-solid fa-car"></i><span>Estacionamento</span></div>
                 <?php endif; ?>
                 <!-- BANHEIRA -->
-                <?php if ($imv->getComodidades()['banheira'] == 1): ?>
+                <?php if ($imv->getComodidades()['banheira'] == 1) : ?>
                     <div class="L_comodidades"><i class="fa-solid fa-bath"></i><span>Banheira</span></div>
                 <?php endif; ?>
+            </div>
+            
+            <!-- descrição mobile -->
+            <div class="L_div-1-3 L_display-flex">
+                <div class="L_1-3-desc">
+                    <h1>Descrição</h1>
+                    <span><?php echo $imv->getDescricao() ?></span>
+                    <!-- ALUGLEALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOO PRECOOOOO -->
+                    <span><br><?php echo $imv->getPrecoAluguel() ?></span>
+                </div>
+                <!-- divisor -->
+                <div class="L_divisor-barra L_barra-desc"></div>
+                <!-- ------- -->
             </div>
             <!-- preço  -->
             <div class="L_container-valor">
                 <div class="L_valor">
                     <span class="L_span-title-valor">Preço</span>
+                    <span style=" font-weight:bold;color: #454545;">compra</span>
                     <span class="L_span-valor">$ <?php echo $imv->getPrecoCompra() ?></span>
+                    <span style=" font-weight:bold;color: #454545;">aluguel</span>
+                    <span class="L_span-valor">$ <?php echo $imv->getPrecoAluguel() ?></span>    
                     <div class="L_reviews">
                         <div class="L_div-stars">
                             <div class="L_stars-review">

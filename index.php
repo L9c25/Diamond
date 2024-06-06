@@ -327,6 +327,10 @@
 		</div>
 	</section>
 
+	<?php
+		include "./components/footer/footer.php";
+	?>
+
 	<!-- IMPORT SWIPER -->
 	<script src="./assets/Swiper/swiper-bundle.min.js"></script>
 	<!-- IMPORT  EXPANSE -->

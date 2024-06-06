@@ -21,13 +21,13 @@
                 </div>
 
                 <div class="dropdown-content" id="options1">
-                    <div onclick="selectOption('Terra - órbita', 'selectedOption1')">Terra - órbita</div>
+                    <div onclick="selectOption('Terra - superficie', 'selectedOption1')">Terra - superficie</div>
                     <div onclick="selectOption('Marte - Superficie', 'selectedOption1')">Marte - Superficie</div>
                     <div onclick="selectOption('Lua - Superficie', 'selectedOption1')">Lua - Superficie</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption1">
-                    <span class="L_span-option-loc">Terra - órbita</span>
+                    <span class="L_span-option-loc">Terra - Superficie</span>
                 </div>
             </div>
 
@@ -39,13 +39,13 @@
                 </div>
 
                 <div class="dropdown-content" id="options2">
-                    <div onclick="selectOption('Módulo - AutS', 'selectedOption2')">Módulo - AutS</div>
-                    <div onclick="selectOption('Tipo 2', 'selectedOption2')">Tipo 2</div>
-                    <div onclick="selectOption('Tipo 3', 'selectedOption2')">Tipo 3</div>
+                    <div onclick="selectOption('Módulo - sup', 'selectedOption2')">Módulo - sup</div>
+                    <div onclick="selectOption('Moradia - casa', 'selectedOption2')">Moradia - casa</div>
+                    <div onclick="selectOption('estação - orbit', 'selectedOption2')">estação - orbit</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption2">
-                    <span class="L_span-option-loc">Módulo - AutS</span>
+                    <span class="L_span-option-loc">Módulo - sup</span>
                 </div>
             </div>
 
@@ -58,13 +58,13 @@
                 </div>
 
                 <div class="dropdown-content" id="options3">
-                    <div onclick="selectOption('Espaçoso/150m²', 'selectedOption3')">Espaçoso/150m²</div>
-                    <div onclick="selectOption('Tamanho 2', 'selectedOption3')">Tamanho 2</div>
-                    <div onclick="selectOption('Tamanho 3', 'selectedOption3')">Tamanho 3</div>
+                    <div onclick="selectOption('100m²/150m²', 'selectedOption3')">100m²/150m²</div>
+                    <div onclick="selectOption('150m²/450m²', 'selectedOption3')">150m²/450m²</div>
+                    <div onclick="selectOption('450m²/650m²', 'selectedOption3')">450m²/650m²</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption3">
-                    <span class="L_span-option-loc">Espaçoso/150m²</span>
+                    <span class="L_span-option-loc">100m²/150m²</span>
                 </div>
             </div>
 
@@ -77,8 +77,7 @@
 
                 <div class="dropdown-content" id="options4">
                     <div onclick="selectOption('Compra', 'selectedOption4')">Compra</div>
-                    <div onclick="selectOption('Contrato 2', 'selectedOption4')">Contrato 2</div>
-                    <div onclick="selectOption('Contrato 3', 'selectedOption4')">Contrato 3</div>
+                    <div onclick="selectOption('Aluguel', 'selectedOption4')">Aluguel</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption4">
@@ -87,7 +86,7 @@
             </div>
 
             <!-- [quinta div] Botão de pesquisa -->
-            <div class="L_pesquisar-1 L_none">
+            <div style="cursor:pointer" class="L_pesquisar-1 L_none" onclick="location.href='./imoveis.php'">
                 <div class="L_pesquisar">
                     <div class="L_btn-pesquisar">
                         <SPAN>PESQUISAR</SPAN>
@@ -119,13 +118,13 @@
                 </div>
 
                 <div class="dropdown-content" id="options5">
-                    <div onclick="selectOption('Terra - órbita', 'selectedOption5')">Terra - órbita</div>
+                    <div onclick="selectOption('Terra - superficie', 'selectedOption5')">Terra - Superficie</div>
                     <div onclick="selectOption('Marte - Superficie', 'selectedOption5')">Marte - Superficie</div>
                     <div onclick="selectOption('Lua - Superficie', 'selectedOption5')">Lua - Superficie</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption5">
-                    <span class="L_span-option-loc">Terra - órbita</span>
+                    <span class="L_span-option-loc">Terra - Superficie</span>
                 </div>
             </div>
 
@@ -136,13 +135,13 @@
                     <span class="L_config-span-1">TIPO</span>
                 </div>
                 <div class="dropdown-content" id="options6">
-                    <div onclick="selectOption('Módulo - AutS', 'selectedOption6')">Módulo - AutS</div>
-                    <div onclick="selectOption('Tipo 2', 'selectedOption6')">Tipo 2</div>
-                    <div onclick="selectOption('Tipo 3', 'selectedOption6')">Tipo 3</div>
+                    <div onclick="selectOption('Módulo - sup', 'selectedOption6')">Módulo - sup</div>
+                    <div onclick="selectOption('Moradia - casa', 'selectedOption6')">Moradia - casa</div>
+                    <div onclick="selectOption('estação - orbit', 'selectedOption6')">estação - orbit</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption6">
-                    <span>Módulo - AutS </span>
+                    <span>Módulo - sup </span>
                 </div>
             </div>
         </div>
@@ -168,13 +167,13 @@
                 </div>
 
                 <div class="dropdown-content" id="options7">
-                    <div onclick="selectOption('Espaçoso/150m²', 'selectedOption7')">Espaçoso/150m²</div>
-                    <div onclick="selectOption('Tamanho 2', 'selectedOption7')">Tamanho 2</div>
-                    <div onclick="selectOption('Tamanho 3', 'selectedOption7')">Tamanho 3</div>
+                    <div onclick="selectOption('100m²/150m²', 'selectedOption7')">100m²/150m²</div>
+                    <div onclick="selectOption('150m²/450m²', 'selectedOption7')">150m²/450m²</div>
+                    <div onclick="selectOption('450m²/650m²', 'selectedOption7')">450m²/650m²</div>
                 </div>
 
                 <div class="L_config-span-2" id="selectedOption7">
-                    <span class="L_span-option-loc">Espaçoso/150m²</span>
+                    <span class="L_span-option-loc">100m²/150m²</span>
                 </div>
             </div>
 
@@ -186,8 +185,7 @@
                 </div>
                 <div class="dropdown-content" id="options8">
                     <div onclick="selectOption('Compra', 'selectedOption8')">Compra</div>
-                    <div onclick="selectOption('Contrato 2', 'selectedOption8')">Contrato 2</div>
-                    <div onclick="selectOption('Contrato 3', 'selectedOption8')">Contrato 3</div>
+                    <div onclick="selectOption('Contrato 2', 'selectedOption8')">Aluguel</div>
                 </div>
                 <div class="L_config-span-2" id="selectedOption8">
                     <span class="L_span-option-loc">Compra</span>
@@ -214,7 +212,7 @@
 
 
         <!-- [DIV Botão 2 ] segundo tipo de botão de pesquisa para dimensões menores < 1026px width-->
-        <div class="L_pesquisar-2 L_configs-univeral-p">
+        <div style="cursor:pointer" class="L_pesquisar-2 L_configs-univeral-p" onclick="location.href='./imoveis.php'">
             <div class="L_pesquisar">
                 <div class="L_btn-pesquisar">
                     <SPAN>PESQUISAR</SPAN>
