@@ -31,6 +31,9 @@ if ($_SESSION["adm"] != 1) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="./assets/js/painel.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<style>
 			body {
 				padding-top: 60px;
@@ -127,20 +130,19 @@ if ($_SESSION["adm"] != 1) {
 								<?php echo $imv->getDisponivel() ? "Disponivel" : "Indisponivel" ?>
 							</td>
 							<td>
-								<a class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-										title="Edit"
-										onclick="location.href='EditImovel.php/?id=<?php echo $id ?>'">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
-										data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a class="edit" data-toggle="modal">
+									<i class="fa-regular fa-pen-to-square" title="Edit"
+										onclick="location.href='EditImovel.php/?id=<?php echo $id ?>'"></i>
+								</a>
+								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+									<i class="fa-solid fa-trash" data-toggle="tooltip" title="Delete"></i>
+								</a>
 							</td>
 						</tr>
 
 					<?php endforeach ?>
 				</tbody>
 			</table>
-			<div class="clearfix">
-				<div class="hint-text">Vizualiznado <b><?php echo $qtd ?></b> Imoveis</div>
-			</div>
 		</div>
 	</div>
 
@@ -184,13 +186,10 @@ if ($_SESSION["adm"] != 1) {
 							img: imvImg
 						},
 						success: function (response) {
-							console.log(response)
 							var resp = response;
 
 							//? Reserva deletada com suceso
 							if (resp == 1) {
-
-
 								const Toast = Swal.mixin({
 									toast: true,
 									position: "top-end",
@@ -209,8 +208,6 @@ if ($_SESSION["adm"] != 1) {
 							}
 
 							else if (resp != 1) {
-
-
 								const Toast = Swal.mixin({
 									toast: true,
 									position: "top-end",
@@ -257,11 +254,13 @@ if ($_SESSION["adm"] != 1) {
 			var searchQuery = $(this).val();
 
 			$.ajax({
-				url: 'buscar.php', // URL do script PHP que processará a busca
+				url: 'buscar.php',
 				type: 'POST',
 				data: { query: searchQuery },
 				success: function (response) {
 					$("#content").html(response); // Atualiza o conteúdo da tabela
+					$("#Visualizado").html(response.qtd) // Atualiza a contagem de qts imoveis estao sendo visualizados
+					console.log(response)
 				},
 				error: function (xhr, status, error) {
 					console.error("Erro na requisição AJAX: " + status + " " + error);

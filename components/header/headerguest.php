@@ -208,7 +208,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class='L_login-header-m '>
+		<div class='L_login-header-m'  title="Logout">
 			<span onclick="location.href='./pages/login/login.php'">Login</span>
 		</div>
 	</nav>

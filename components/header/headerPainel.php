@@ -205,7 +205,7 @@
         <div class='L_fundo-login'>
             <ul class='L_login-header'>
                 <li class='L_li-login'><span><?php print ($_SESSION["username"]) ?></span></lil>
-                <li class='L_icon-btn-login'>
+                <li class='L_icon-btn-login'  title="Logout">
                     <img src="./components/header/imgs/icon-btn-login.svg" alt=""
                         onclick="location.href='./logout.php'">
                 </li>

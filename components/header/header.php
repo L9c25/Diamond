@@ -236,7 +236,7 @@
         <div class='L_fundo-login'>
             <ul class='L_login-header'>
                 <li class='L_li-login' onclick="location.href='./pages/login/login.php'"><span>Login</span></lil>
-                <li class='L_icon-btn-login'>
+                <li class='L_icon-btn-login' title="Logout">
                     <img src="./components/header/imgs/icon-btn-login.svg" alt=""
                         onclick="location.href='./logout.php'">
                 </li>

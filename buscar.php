@@ -10,7 +10,7 @@ $dados = $d->listar(null, null, $query);
 if (count($dados) > 0) {
     foreach ($dados as $imv) {
         $id = $imv->getId();
-        echo "<tr>
+       echo "<tr>
                 <td>
                     <span class=\"custom-checkbox\">
                         <input type=\"checkbox\" id=\"checkbox$id\" name=\"options[]\" value=\"$id\">
