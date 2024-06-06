@@ -140,7 +140,7 @@
                         </svg>
                     </div>
                     <div class="L_container-txt-sidebar">
-                        <a class="L_txt-sidebar" href="#D_services">Serviços</a>
+                        <a class="L_txt-sidebar" href="index.php#D_services">Serviços</a>
                         <span>Serviços Diamond</span>
                     </div>
                 </li>
@@ -174,7 +174,7 @@
                         </svg>
                     </div>
                     <div class="L_container-txt-sidebar">
-                        <a class="L_txt-sidebar" href="#D_contact">Contato</a>
+                        <a class="L_txt-sidebar" href="index.php#D_contact">Contato</a>
                         <span>Contato Diamond</span>
                     </div>
                 </li>

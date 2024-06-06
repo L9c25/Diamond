@@ -172,7 +172,7 @@
                         </svg>
                     </div>
                     <div class="L_container-txt-sidebar">
-                        <a class="L_txt-sidebar" href="#D_services">Serviços</a>
+                        <a class="L_txt-sidebar" href="index.php#D_services">Serviços</a>
                         <span>Serviços Diamond</span>
                     </div>
                 </li>
@@ -206,7 +206,7 @@
                         </svg>
                     </div>
                     <div class="L_container-txt-sidebar">
-                        <a class="L_txt-sidebar" href="#D_contact">Contato</a>
+                        <a class="L_txt-sidebar" href="index.php#D_contact">Contato</a>
                         <span>Contato Diamond</span>
                     </div>
                 </li>
@@ -230,7 +230,7 @@
                             transform="rotate(45.11 18.5205 11.2454)" fill="#1E1E1E" />
                     </svg>
                 </li>
-                <a href="#D_services">
+                <a href="index.php#D_services">
                     <li class="L_optn-central L_none-2">
                         <span>Serviços</span>
                         <svg class="my-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
@@ -242,7 +242,7 @@
                         </svg>
                     </li>
                 </a>
-                <a href="#D_contact">
+                <a href="index.php#D_contact">
                     <li class="L_optn-central L_none-1">
                         <span>Contact</span>
                         <svg class="my-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
@@ -254,7 +254,7 @@
                         </svg>
                     </li>
                 </a>
-                <a href="#D_galeria">
+                <a href="index.php#D_galeria">
                     <li class="L_optn-central  L_none-3">
                         <span>Galeria</span>
                         <svg class="my-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
