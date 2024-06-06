@@ -1,5 +1,5 @@
 <?php 
-require_once "./config/connect.php";
+require_once "../../config/connect.php";
 
 // Definindo variáveis
 $username = $senha = $confirm_password = "";
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare uma declaração de inserção
-        $sql = "INSERT INTO usuario (username, senha, adm, data) VALUES (:username, :senha, 1, :data)";
+        $sql = "INSERT INTO usuario (username, senha, adm, data) VALUES (:username, :senha, 0, :data)";
          
         if($stmt = $pdo->prepare($sql)){
             // Vincule as variáveis à instrução preparada como parâmetros
@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Tente executar a declaração preparada
             if($stmt->execute()){
                 // Redirecionar para a página de login
-                header("location: index.php");
+                header("location: ../login/login.php");
             } else{
                 echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
             }
@@ -94,13 +94,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./pages/cadastro/cadastro.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./cadastro.css">
 </head>
 
 <body>
@@ -110,8 +110,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <!-- container esquero do container do login  -->
         <div class="L_container-ca-1">
             <div class="L_imagem-lo">
-                <img id="L_img-login" src="./pages/cadastro/imgs/img-cadastro.png" alt="">
-                <img id="L_logo-diamond-login" src="./pages/login/imgs/logo-diamond-white.png" alt="">
+                <img id="L_img-cad" src="./imgs/img-cadastro.png" alt="">
+                <img id="L_img-cad2" src="./imgs/img-cadastro2.png" alt="">
+                <img id="L_logo-diamond-login" src="./logo-diamond-white.png" alt="">
             </div>
         </div>
         <!-- container direito do container do login -->
@@ -136,12 +137,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="L_container-input">
                     <span>Por favor, confirme a Senha.</span>
                     <input name="confirm_password" id="login-input" type="password" required placeholder="Senha" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                    <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                    <span class="invalid-feedback "><?php echo $confirm_password_err; ?></span>
                 </div>
 
-                <div class="L_btn-login">
-                    <input type="submit" value="Cadastro">
-                </div>
+                <input class="L_btn-login" type="submit" value="Cadastro">
 
             </div>
 
@@ -153,13 +152,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
 
                 <div class="L_cadastre-se">
-                    <span>Já tem uma conta? <a href="#" onclick="navigate('login')">Faça o login</a></span>
+                    <span>Já tem uma conta? <a href="#" onclick="location.href='../login/login.php'"">Faça o login</a></span>
                 </div>
             </div>
             <div class="L_redes-sociais">
-                <img src="./pages/login/imgs/x-social.svg" alt="">
-                <img src="./pages/login/imgs/ins-social.svg" alt="">
-                <img src="./pages/login/imgs/f-social.svg" alt="">
+                <img src="./imgs/x-social.svg" alt="">
+                <img src="./imgs/ins-social.svg" alt="">
+                <img src="./imgs/f-social.svg" alt="">
             </div>
         </div>
     </div>

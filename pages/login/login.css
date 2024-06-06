@@ -11,6 +11,9 @@ body {
     width: 100%;
     margin-top: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../../assets/img/bg.jpg");
+	background-size: contain;
+	background-position: center;
 }
 .L_container-login{
     display: flex;
@@ -136,6 +139,8 @@ body {
     border-radius: 50px;
     color: white;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 .L_btn-login:hover,:focus{
     box-shadow: 0 1px 7px #0066FF;
@@ -176,6 +181,7 @@ body {
 .L_redes-sociais{
     display: flex;
     gap: 20px;
+    margin-bottom: 30px;
 }
 .L_redes-sociais>img{
     width: 25px;
@@ -212,5 +218,30 @@ footer{
     }
     #L_img-login{
         display: none;
+    }
+}
+
+@media (max-width: 561px) {
+    .L_container-login{
+        width: 90vw;
+        height: auto;
+    }
+}
+@media (max-width: 376px) {
+    .L_titulo-login>h1{
+        font-size: 35px;
+    }
+    .L_titulo-login>p{
+        font-size: 16px;
+    }
+    .L_container-input>span{
+        font-size: 14px;
+    }
+
+    .L_ou{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
     }
 }

@@ -26,33 +26,72 @@
                 <!-- opções sidebar -->
                 <!-- login -->
 
-                <li class='L_li-sidebar-options'>
+                <a href="./pages/login/login.php">
+                    <li class='L_li-sidebar-options'>
+                        <div class='L_focus-sidebar'>
+                        </div>
+                        <div class='L_div-icon-sidebar'>
+
+                            <svg class='L_svg-sidebar' width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                <g id="SVGRepo_iconCarrier">
+                                    <g id="User / User_Circle">
+                                        <path class="L_svg-color-sidebar-login" id="Vector"
+                                            d="M17.2166 19.3323C15.9349 17.9008 14.0727 17 12 17C9.92734 17 8.06492 17.9008 6.7832 19.3323M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z"
+                                            stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="L_container-txt-sidebar">
+                            <a class="L_txt-sidebar" href=""><?php print ($_SESSION["username"]) ?></a>
+                            <span>Olá ADM</span>
+                        </div>
+                    </li>
+                </a>
+
+                <!-- opção dashboard -->
+
+                <li class='L_li-sidebar-options' onclick="location.href='painel.php'">
                     <div class='L_focus-sidebar'>
                     </div>
                     <div class='L_div-icon-sidebar'>
-
-                        <svg class='L_svg-sidebar' width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                        <svg class='L_svg-sidebar' width="64px" height="64px" viewBox="0 -0.5 25 25" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0" />
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
                             <g id="SVGRepo_iconCarrier">
-                                <g id="User / User_Circle">
-                                    <path class="L_svg-color-sidebar-login" id="Vector"
-                                        d="M17.2166 19.3323C15.9349 17.9008 14.0727 17 12 17C9.92734 17 8.06492 17.9008 6.7832 19.3323M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z"
-                                        stroke="#000000" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </g>
+                                <path class="L_svg-color-sidebar" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M9.918 10.0005H7.082C6.66587 9.99708 6.26541 10.1591 5.96873 10.4509C5.67204 10.7427 5.50343 11.1404 5.5 11.5565V17.4455C5.5077 18.3117 6.21584 19.0078 7.082 19.0005H9.918C10.3341 19.004 10.7346 18.842 11.0313 18.5502C11.328 18.2584 11.4966 17.8607 11.5 17.4445V11.5565C11.4966 11.1404 11.328 10.7427 11.0313 10.4509C10.7346 10.1591 10.3341 9.99708 9.918 10.0005Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+
+                                <path class="L_svg-color-sidebar" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M9.918 4.0006H7.082C6.23326 3.97706 5.52559 4.64492 5.5 5.4936V6.5076C5.52559 7.35629 6.23326 8.02415 7.082 8.0006H9.918C10.7667 8.02415 11.4744 7.35629 11.5 6.5076V5.4936C11.4744 4.64492 10.7667 3.97706 9.918 4.0006Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+
+                                <path class="L_svg-color-sidebar" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M15.082 13.0007H17.917C18.3333 13.0044 18.734 12.8425 19.0309 12.5507C19.3278 12.2588 19.4966 11.861 19.5 11.4447V5.55666C19.4966 5.14054 19.328 4.74282 19.0313 4.45101C18.7346 4.1592 18.3341 3.9972 17.918 4.00066H15.082C14.6659 3.9972 14.2654 4.1592 13.9687 4.45101C13.672 4.74282 13.5034 5.14054 13.5 5.55666V11.4447C13.5034 11.8608 13.672 12.2585 13.9687 12.5503C14.2654 12.8421 14.6659 13.0041 15.082 13.0007Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+
+                                <path class="L_svg-color-sidebar" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M15.082 19.0006H17.917C18.7661 19.0247 19.4744 18.3567 19.5 17.5076V16.4936C19.4744 15.6449 18.7667 14.9771 17.918 15.0006H15.082C14.2333 14.9771 13.5256 15.6449 13.5 16.4936V17.5066C13.525 18.3557 14.2329 19.0241 15.082 19.0006Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </g>
                         </svg>
                     </div>
-
                     <div class="L_container-txt-sidebar">
-                        <a class="L_txt-sidebar" href=""><?php print ($_SESSION["username"]) ?></a>
-                        <span>Oii</span>
+                        <a class="L_txt-sidebar" href="#">Dashboard</a>
+                        <span>Configurações</span>
                     </div>
                 </li>
-
-
                 <!-- ----home---- -->
 
                 <li class='L_li-sidebar-options' onclick="location.href='index.php'">
@@ -77,7 +116,6 @@
                         <span>inicio</span>
                     </div>
                 </li>
-
                 <!-- Moradias -->
                 <li class='L_li-sidebar-options' onclick="location.href='./imoveis.php'">
                     <div class='L_focus-sidebar'>
@@ -111,10 +149,7 @@
                         <a class="L_txt-sidebar" href="./imoveis.php">Moradias</a>
                         <span>Nossas Moradias</span>
                     </div>
-                </li>
-
                 <!-- serviços -->
-
                 <li class='L_li-sidebar-options'>
                     <div class='L_focus-sidebar'>
                     </div>
@@ -176,9 +211,9 @@
                     </div>
                 </li>
 
+
             </ul>
         </div>
-
         <!-- data-href="index.php" -->
         <div class="L_central-options">
             <ul>
@@ -235,8 +270,8 @@
         </div>
         <div class='L_fundo-login'>
             <ul class='L_login-header'>
-                <li class='L_li-login' onclick="location.href='./pages/login/login.php'"><span>Login</span></lil>
-                <li class='L_icon-btn-login' title="Logout">
+                <li class='L_li-login'><span><?php print ($_SESSION["username"]) ?></span></lil>
+                <li class='L_icon-btn-login'  title="Logout">
                     <img src="./components/header/imgs/icon-btn-login.svg" alt=""
                         onclick="location.href='./logout.php'">
                 </li>

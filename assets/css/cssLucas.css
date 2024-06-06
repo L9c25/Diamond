@@ -7,6 +7,24 @@
     * RESPONSIVIDADE	
 */
 
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+}
+
+body {
+	margin: 0 25px;
+	background-image: url("../img/bg.jpg");
+	background-size: contain;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2em;
+}
+
+
 /*! sessao news */
 .D_news {
 	display: flex;
@@ -17,7 +35,7 @@
 	border-radius: 20px;
 	border: 2px solid white;
 	padding: 20px;
-	font-family: "Montserrat", sans-serif;
+	color: white;
 }
 
 /* Titulo NEWS q esta deitado */
@@ -51,7 +69,6 @@
 .D_text {
 	padding: 10px 10px 0 50px;
 	width: 90%;
-	color: white;
 }
 
 .D_text h3 {
@@ -165,7 +182,6 @@
 	flex-direction: column;
 	justify-content: space-between;
 	margin-bottom: 10px;
-	color: white;
 }
 
 .D_clientreviewText {
@@ -282,8 +298,6 @@
 		font-size: 80px;
 		position: relative;
 		letter-spacing: 10px;
-		color: white;
-		font-family: "Montserrat", sans-serif;
 	}
 
 	.D_interact {
@@ -332,7 +346,6 @@
 		font-size: 40px;
 		position: absolute;
 		top: 50%;
-		color: white;
 	}
 	.arrow-mobile-left{
 		left: -35px;

@@ -1,6 +1,15 @@
+html{
+    scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
+}
+
+header a{
+    color: black !important;
+    text-decoration: none !important;
 }
 
 header{
@@ -25,6 +34,7 @@ ul{
     display: flex;
     gap: 20px;
     list-style: none;
+    margin: 0;
 }
 li{
     display: flex;
@@ -74,14 +84,16 @@ li{
     border-radius: 50px;
     cursor: pointer;
     transition: background 0.2s ease-in-out;
+    box-sizing: content-box;
 }
+
 .line{
     transition: fill 0.2s;
 }
 .L_optn-central:hover,.L_optn-central:hover .line
 {
     background-color: black;
-    color: white;
+    color: white !important;
     cursor: pointer;
     fill: white;
 }
@@ -108,6 +120,7 @@ li{
 }
 .L_icon-btn-login{
     display: flex;
+    cursor: pointer;
 }
 .L_li-login{
     background-color: rgb(255, 255, 255);

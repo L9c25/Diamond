@@ -1,4 +1,3 @@
-console.log("esntrou")
 $(document).ready(function() {
     // Função para abrir e fechar a barra lateral
     function toggleSidebar() {

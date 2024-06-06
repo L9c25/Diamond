@@ -1,98 +1,88 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!--! pesquisa -->
+<div class="L_container-imoveis">
+	<section class="L_pesquisa-imoveis">
+		<div class="L_logo-diamond-imoveis">
+			<img src="./pages/imoveis/logo-diamond-white.png" alt="logo">
+		</div>
+		<form class="L_input-pesquisa-imoveis" id="formPesquisa" method="GET" action="pesquisar.php">
+			<input id="search-bar" type="search" placeholder="pesquise moradias...">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--! favicon -->
-	<link rel="shortcut icon" href="./assets/img/Logo.png" type="image/x-icon">
-	<!--! Bootstrap -->
-	<link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
-	<!--! CSS -->
-	<link rel="stylesheet" href="imoveis.css">
+			<button type="button" id="btnPesquisar">
+				<img src="./pages/imoveis/icon-pesquisa.svg" alt="icon-pesquisa">
+			</button>
+		</form>
 
-	<title>imoveis</title>
-</head>
 
-<body>
-	<!--! pesquisa -->
-	<div class="L_container-imoveis">
-		<section class="L_pesquisa-imoveis">
-			<div class="L_logo-diamond-imoveis">
-				<img src="./logo-diamond-white.png" alt="logo">
-			</div>
-			<form class="L_input-pesquisa-imoveis" id="formPesquisa" method="GET" action="pesquisar.php">
-				<input type="search" placeholder="pesquise moradias...">
-				
-				<button type="button" id="btnPesquisar">
-					<img src="./icon-pesquisa.svg" alt="icon-pesquisa">
-				</button>
-			</form>
-			
 
-			
-		</section>
+	</section>
 
-		<!-- grid dos quartos-->
-		<section class="sec-grid-imoveis">
-			<div class="grid-imoveis row gap-5 justify-content-center">
+	<!-- grid dos quartos-->
+	<section class="sec-grid-imoveis">
+		<div class="grid-imoveis row gap-5 justify-content-center" id="content">
+
+
+			<?php
+			$d = new daoMysql($pdo);
+			//* Mostar APENAS os disponiveis
+			$dados = $d->listar($id = null, $disponibilidade = 1);
+			$qtd = count($dados);
+			foreach ($dados as $imv):
+				$id = $imv->getId();
+				?>
 				<!--! card unitario do quarto -->
 				<div class="card">
 					<div class="card-img">
-						<div class="overlay o1"></div>
+						<div class="overlay"
+							style="background-image: url(./assets/img/imovel/<?php echo $imv->getImg() ?>);"></div>
 					</div>
 					<div class="card-text">
-						<h2 class="text-dark">Moradia Luxuosa</h2>
-						<R1 class="text-secondary">Family House</R1><br>
-						<R1 class="fs-4 text-dark"><b>R$</b> 4.000.000</R1>
-					</div>
-					<div class="botao ">
-						<button type="button" onclick="location.href='quarto.html'">Conferir</button>
-					</div>
-				</div>
-				
-				<!--! card unitario do quarto -->
-				<div class="card">
-					<div class="card-img">
-						<div class="overlay o2"></div>
-					</div>
-					<div class="card-text">
-						<h2 class="text-dark">Quarto de Luxo</h2>
-						<R1 class="text-secondary"><s><b>R$</b> 199,00</s></R1><br>
-						<R1 class="fs-4 text-dark"><b>R$</b> 75,00</R1>
+						<h2 class="text-dark"><?php echo $imv->getNome() ?></h2>
+						<R1 class="text-secondary">
+							<?php echo $imv->getEndereco()['rua'] . ', ' . $imv->getEndereco()['bairro'] . ', ' . "n°" . $imv->getEndereco()['numero'] . ', ' . $imv->getEndereco()['planeta'] ?>
+						</R1><br>
+						<R1 class="fs-4 text-dark">
+							<b>R$</b><?php echo number_format($imv->getPrecoCompra(), 2, ",", "."); ?></R1>
 					</div>
 					<div class="botao">
-						<button type="button" onclick="location.href='quarto.html'">Conferir</button>
+						<form method="POST" action="imovel.php">
+							<input type="hidden" name="id" value="<?php echo $imv->getId(); ?>">
+							<button type="submit">Conferir</button>
+						</form>
 					</div>
 				</div>
 
-				<div class="card">
-					<div class="card-img">
-						<div class="overlay o1"></div>
-					</div>
-					<div class="card-text">
-						<h2 class="text-dark">Quarto de Luxo</h2>
-						<R1 class="text-secondary"><s><b>R$</b> 199,00</s></R1><br>
-						<R1 class="fs-4 text-dark"><b>R$</b> 75,00</R1>
-					</div>
-					<div class="botao ">
-						<button type="button" onclick="location.href='quarto.html'">Conferir</button>
-					</div>
-				</div>
-				
-			</div>
-		</section>
-	</div>
+			<?php endforeach ?>
+		</div>
+	</section>
+</div>
 
-	
 
-	<!--! Overlay para o header-mobile -->
-	<section class="overlay-header"></section>
 
-	
-	<!--! Script -->
-	
-	<script src="./assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+<!--! Overlay para o header-mobile -->
+<section class="overlay-header"></section>
+<script>
+		$(document).ready(function (e) {
+			$("#search-bar").on("input", function () {
+				var searchQuery = $(this).val();
+
+				$.ajax({
+					url: 'buscar2.php',
+					type: 'POST',
+					data: { query: searchQuery },
+					success: function (response) {
+						$("#content").html(response); // Atualiza o conteúdo da tabela
+					},
+					error: function (xhr, status, error) {
+						console.error("Erro na requisição AJAX: " + status + " " + error);
+					}
+				});
+			});
+		})
+	</script>
+
+<!--! Script -->
+
+<script src="./assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

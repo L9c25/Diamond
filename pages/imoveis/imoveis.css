@@ -23,7 +23,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	background-image: url("../../assets/img/bg.jpg");
-	background-size: contain;
+	background-size: cover;
 	background-position: center;
 }
 
@@ -142,8 +142,7 @@ body {
 	border-radius: 12px;
 	border: 10px solid white;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.163);
-	
-	
+	position: relative;	
 }
 .card:hover{
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.305);
@@ -166,30 +165,20 @@ body {
 	width: 100%;
 	/* -webkit-mask-image: linear-gradient(to bottom, transparent 1%, rgb(0, 0, 0) 60%); */
 	border-radius: 12px;
-	background-image: url(./img-imovel.jpg);
 	background-position: center center;
 	background-size: 110%;
-	transition: all 0.2s ease-in-out;
-
-	
-
-	
+	background-size: cover;	
+	transition: all 4s ease-out;
 }
-
 .overlay:hover {
+	transition: all 4s ease-in;
 	filter: brightness(1.1);
-	background-size: 115%;
+	background-size: 145%;
 }
-
-.o1{
-	background-image: url(./img-imovel.jpg);
-	
-}
-
-
 
 .card-text {
 	padding-left: 0px;
+	margin-bottom: auto;
 }
 
 .card button {
@@ -201,13 +190,11 @@ body {
 	color: rgb(255, 238, 0);
 	border-radius: 12rem;
 	cursor: pointer;
-
+	position: absolute;
+	bottom: +0px;
+	right: +0px;
 }
 
 .botao {
 	width: 100%;
-	position: relative;
-	bottom: -30px;
-	display: flex;
-	justify-content: flex-end;
 }
