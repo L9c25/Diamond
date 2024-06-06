@@ -79,7 +79,7 @@
                 </li>
 
                 <!-- Moradias -->
-                <li class='L_li-sidebar-options' onclick="navigate('moradias')">
+                <li class='L_li-sidebar-options' onclick="location.href='./imoveis.php'">
                     <div class='L_focus-sidebar'>
                     </div>
                     <div class='L_div-icon-sidebar'>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="L_container-txt-sidebar">
                         <!-- LEVA PARA A PAGE DE TODOS OS IMOVEIS -->
-                        <a class="L_txt-sidebar" href="#">Moradias</a>
+                        <a class="L_txt-sidebar" href="./imoveis.php">Moradias</a>
                         <span>Nossas Moradias</span>
                     </div>
                 </li>
@@ -185,7 +185,7 @@
                 <li class="L_optn-central " onclick="location.href='index.php'">
                     <span>Home</span>
                 </li>
-                <li class="L_optn-central" onclick="navigate('moradias')">
+                <li class="L_optn-central" onclick="location.href='./imoveis.php'">
                     <span>Moradias</span>
                     <svg class="my-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

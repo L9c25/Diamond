@@ -116,7 +116,39 @@
                         <span>inicio</span>
                     </div>
                 </li>
+                <!-- Moradias -->
+                <li class='L_li-sidebar-options' onclick="location.href='./imoveis.php'">
+                    <div class='L_focus-sidebar'>
+                    </div>
+                    <div class='L_div-icon-sidebar'>
 
+                        <svg class='L_svg-sidebar-galeria' fill="#000000" height="64px" width="64px" version="1.1"
+                            id="Filled_Icons" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"
+                            enable-background="new 0 0 24 24" xml:space="preserve">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                            <g id="SVGRepo_iconCarrier">
+                                <g id="Gallery-Filled">
+
+                                    <path class="L_svg-color-sidebar"
+                                        d="M8,6c0,1.1-0.9,2-2,2S4,7.1,4,6s0.9-2,2-2S8,4.9,8,6z" />
+
+                                    <path class="L_svg-color-sidebar"
+                                        d="M0,0v19h20V0H0z M18,2v10.8L13.99,8L10,13l-3-3l-5,5.83V2H18z" />
+
+                                    <path class="L_svg-color-sidebar" d="M24,23H5v-2h17V5h2V23z" />
+                                </g>
+                            </g>
+
+                        </svg>
+                    </div>
+                    <div class="L_container-txt-sidebar">
+                        <!-- LEVA PARA A PAGE DE TODOS OS IMOVEIS -->
+                        <a class="L_txt-sidebar" href="./imoveis.php">Moradias</a>
+                        <span>Nossas Moradias</span>
+                    </div>
                 <!-- serviços -->
                 <li class='L_li-sidebar-options'>
                     <div class='L_focus-sidebar'>
@@ -188,7 +220,7 @@
                 <li class="L_optn-central " onclick="location.href='index.php'">
                     <span>Home</span>
                 </li>
-                <li class="L_optn-central" onclick="navigate('moradias')">
+                <li class="L_optn-central" onclick="location.href='./imoveis.php'">
                     <span>Moradias</span>
                     <svg class="my-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

@@ -92,9 +92,6 @@ if ($_SESSION["adm"] != 1) {
 				</thead>
 				<tbody id="content">
 					<?php
-					// Defenindo variaveis:
-					$HOST = $_SERVER['HTTP_HOST'];
-
 					$d = new daoMysql($pdo);
 					$dados = $d->listar($id = null, $disponibilidade = null);
 					$qtd = count($dados);

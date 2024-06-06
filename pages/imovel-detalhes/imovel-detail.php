@@ -1,12 +1,10 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./pages/imovel-detalhes/imovel-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
-    <script src="assets\jquery-3.7.1.min.js"></script>
+    <script src="./assets/jquery-3.7.1.min.js"></script>
 </head>
 
 
@@ -18,7 +16,7 @@
             <div class="L_div-1-1">
                 <!-- div voltar -->
                 <div class="L_1-1-voltar">
-                    <div class="L_icon-svg-arrow">
+                    <div class="L_icon-svg-arrow" onclick="location.href='index.php'">
                         <img src="./pages/imovel-detalhes/img/icon-voltar.svg" alt="">
                         <span>Voltar</span>
                     </div>
@@ -35,8 +33,7 @@
                 </div> -->
             <!-- Seu conteúdo aqui -->
             <div class="L_1-2-imagem">
-                <img src="./pages/imovel-detalhes/img/imagem-imovel-page.png" alt="Imagem Imóvel" class="img-fluid"
-                    onclick="openPhotoSwipe();">
+                <img src="./assets/img\imovel\<?php echo $imv->getImg()?>" class="img-fluid" onclick="openPhotoSwipe();">
             </div>
 
             <!-- PhotoSwipe core JS files -->
@@ -83,14 +80,9 @@
             <div class="L_div-1-3">
                 <div class="L_1-3-desc">
                     <h1>Descrição</h1>
-                    <span>Este imóvel moderno é
-                        um exemplo de elegância e
-                        funcionalidade, situado em
-                        um bairro tranquilo e prestigiado.
-                        A fachada minimalista é composta por
-                        linhas retas e materiais de alta qualidade,
-                        como vidro e aço inoxidável, criando um visual
-                        limpo e contemporâneo. </span>
+                    <span><?php echo $imv->getDescricao() ?></span>
+                    <!-- ALUGLEALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOOALUGLE PRECOOOOO PRECOOOOO -->
+                    <span><br><?php echo $imv->getPrecoAluguel() ?></span>
                 </div>
                 <!-- divisor -->
                 <div class="L_divisor-barra L_barra-desc"></div>
@@ -114,40 +106,41 @@
         <div class="L_container-im-2">
             <!-- titulo  -->
             <div class='L_titulo-residencia'>
-                <h1>Residencia Moderna</h1>
+                <h1><?php echo $imv->getNome() ?></h1>
             </div>
             <!-- comodidades -->
             <div class="L_div-comodidades">
-                <div class="L_comodidades">
-                    <img src="./pages/imovel-detalhes/img/icon-pool.svg" alt="ss">
-                    <span>Piscina</span>
-                </div>
-                <div class="L_comodidades">
-                    <img src="./pages/imovel-detalhes/img/icon-pool.svg" alt="ss">
-                    <span>Piscina</span>
-                </div>
-                <div class="L_comodidades">
-                    <img src="./pages/imovel-detalhes/img/icon-pool.svg" alt="ss">
-                    <span>Piscina</span>
-                </div>
-                <div class="L_comodidades">
-                    <img src="./pages/imovel-detalhes/img/icon-pool.svg" alt="ss">
-                    <span>Piscina</span>
-                </div>
-                <div class="L_comodidades">
-                    <img src="./pages/imovel-detalhes/img/icon-pool.svg" alt="ss">
-                    <span>Piscina</span>
-                </div>
-                <div class="L_comodidades">
-                    <img src="./pages/imovel-detalhes/img/icon-pool.svg" alt="ss">
-                    <span>Piscina</span>
-                </div>
+                <?php if ($imv->getComodidades()['piscina'] == 1): ?>
+                    <div class="L_comodidades"><i class="fa-solid fa-water-ladder"></i><span>Piscina</span>
+                    </div>
+                <?php endif; ?>
+                <!-- AreaLazer -->
+                <?php if ($imv->getComodidades()['areaLazer'] == 1): ?>
+                    <div class="L_comodidades"><i class="fa-solid fa-people-roof"></i><span>Área deLazer</span></div>
+                <?php endif; ?>
+                <!-- VARANDA -->
+                <?php if ($imv->getComodidades()['varanda'] == 1): ?>
+                    <div class="L_comodidades"><i class="fa-solid fa-house"></i><span>Varanda</span>
+                    </div>
+                <?php endif; ?>
+                <!-- ACADEMIA -->
+                <?php if ($imv->getComodidades()['academia'] == 1): ?>
+                    <div class="L_comodidades"><i class="fa-solid fa-dumbbell"></i><span>Academia</span></div>
+                <?php endif; ?>
+                <!-- ESTACIONAMENTO -->
+                <?php if ($imv->getComodidades()['estacionamento'] == 1): ?>
+                    <div class="L_comodidades"><i class="fa-solid fa-car"></i><span>Estacionamento</span></div>
+                <?php endif; ?>
+                <!-- BANHEIRA -->
+                <?php if ($imv->getComodidades()['banheira'] == 1): ?>
+                    <div class="L_comodidades"><i class="fa-solid fa-bath"></i><span>Banheira</span></div>
+                <?php endif; ?>
             </div>
             <!-- preço  -->
             <div class="L_container-valor">
                 <div class="L_valor">
                     <span class="L_span-title-valor">Preço</span>
-                    <span class="L_span-valor">$ 4.000.000</span>
+                    <span class="L_span-valor">$ <?php echo $imv->getPrecoCompra() ?></span>
                     <div class="L_reviews">
                         <div class="L_div-stars">
                             <div class="L_stars-review">
@@ -182,14 +175,14 @@
             <!-- informações do corretor e contato -->
             <div class="L_info-importantes">
                 <div class="L_info-corretor">
-                    <h3>Corretores</h3>
+                    <h3>Corretor</h3>
                     <p>Conheça nossos corretores <br> especializados</p>
                 </div>
                 <div class="L_divisor-barra L_barra-corretor"></div>
                 <div class="L_info-contato">
                     <h3>Informações de contato</h3>
-                    <p>Fulano da silva</p>
-                    <p>+777 888 999</p>
+                    <p><?php echo $imv->getCorretor()['nome'] ?></p>
+                    <p><?php echo $imv->getCorretor()['phone'] ?></p>
                 </div>
             </div>
             <!-- redes sociais -->

@@ -8,6 +8,13 @@ body{
     background-color: black;
     height: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../../assets/img/bg.jpg");
+    background-size: cover;
+	background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 .L_container-imovel{
     display: flex;
@@ -19,6 +26,8 @@ body{
     margin-top: 80px;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
 }
 .L_container-1m-2m{
     display: flex;
@@ -177,14 +186,15 @@ body{
     align-items: center;
     width: auto;
     background-color: rgb(255, 255, 255);
-    width: 110px;
+    width: auto;
     height: auto;
     border-radius: 50px;
-    padding: 0px 20px;
+    padding: 10px 20px;
     box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.337);
+    gap: 10px;
 }
-.L_comodidades>img{
-    width: 50px;
+.L_comodidades i{
+    font-size: 18px;
 }
 .L_comodidades>span{
     font-size: 18px;
@@ -233,6 +243,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 13px;
+    margin-top: 60px;
 }
 .L_valor{
     display: flex;
@@ -349,11 +360,12 @@ footer{
         align-items: center;
         width: auto;
         background-color: rgb(255, 255, 255);
-        width: 90px;
         height: auto;
         border-radius: 50px;
         padding: 0px 20px;
         box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.337);
+        padding: 10px 20px;
+
     }
     .L_comodidades>img{
         width: 40px;
@@ -367,13 +379,13 @@ footer{
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: auto;
         background-color: rgb(255, 255, 255);
-        width: 70px;
+        width: auto;
         height: auto;
         border-radius: 50px;
-        padding: 0px 20px;
         box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.337);
+        padding: 10px 20px;
+
     }
     .L_comodidades>img{
         width: 40px;
@@ -467,6 +479,4 @@ footer{
         margin-left: 20px;
     }
 }
-    
-
 

@@ -151,7 +151,7 @@
 				<li class="L_optn-central " onclick="location.href='index.php'">
 					<span>Home</span>
 				</li>
-				<li class="L_optn-central" onclick="navigate('moradias')">
+				<li class="L_optn-central" onclick="location.href='./imoveis.php'">
 					<span>Moradias</span>
 					<svg class="my-svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
 						xmlns="http://www.w3.org/2000/svg">

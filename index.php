@@ -40,11 +40,6 @@
 		} else{
 			include "./components/header/headerguest.php";
 		}
-
-		
-		
-
-
 		include "./components/tela_inicial/bg-home1/bg-home.php";
 		include "./components/tela_inicial/ticket/index.php";
 	?>
