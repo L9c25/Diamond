@@ -167,6 +167,12 @@ body {
 	align-items: end;
 	margin: 10px 0;
 }
+.im{
+	background-image: url("../img/base-lua.png");
+}
+.im1{
+	background-image: url("../img/base-lua.png");
+}
 
 .D_clientreview,
 .D_reviews {

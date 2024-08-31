@@ -244,7 +244,7 @@
 								</div>
 							</span>
 						</div>
-						<div class="D_content">
+						<div class="D_content im1">
 							<div class="D_clientreview">
 								<div class="D_clientreviewText">
 									<h4 class="D_clientreviewTitel">Clientes Satisfeitos</h4>
